@@ -47,10 +47,20 @@ app.post('/register', async (req, res)=>{
     const user = req.body.user;
     const pass = req.body.pass;
     const rol = req.body.rol;
-    connection.query('insert into usuarios set ?',{nombre_usuario:user, pass:pass, rol:rol},
+    const idUser = req.body.idUser;
+    connection.query('insert into usuarios set ?',{nombre_usuario:user, pass:pass, rol:rol, id_empleado:idUser},
         async(error, results)=>{
             if(error){
                 console.log(error);
+                res.render('register', {
+                    alert:true,
+                    alertTitle: "Error",
+                    alertMessage: "Id de ususario no existe",
+                    alertIcon: 'error',
+                    showConfirmButton: false,
+                    timer:2500,
+                    ruta:''
+                })
             } else{
                 res.render('register', {
                     alert:true,
@@ -58,7 +68,7 @@ app.post('/register', async (req, res)=>{
                     alertMessage: "¡Registro Exitoso!",
                     alertIcon: 'success',
                     showConfirmButton: false,
-                    timer:1500,
+                    timer:2500,
                     ruta:''
                 })
             }

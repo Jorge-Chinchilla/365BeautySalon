@@ -1,5 +1,5 @@
 body{
-    background-color:#f7bbf4;
+    background-color:#f8ccf6;
     color: #6e008a;
     font-family:'Times New Roman';
     font-style: oblique;
@@ -9,12 +9,18 @@ body{
 
 /* Formulario Login */
 .login-form, .contenedor {
-    width: 300px;
-    margin: 0 auto;
-  }
-  .login-form h1 {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0px 20px 60px 20px;
+  margin-top: 35px;
+  background-color: #fdb5fa;
+  font-family: roboto;  
+  text-align: left !important;
+ box-shadow: 0 49px 68px rgba(107, 104, 107, 0.479), 0 15px 12px rgba(95, 93, 95, 0.452); 
+}
+  .login-form h2 {
     text-align: center;
-    color:rgb(216, 25, 223) ;
+    color:rgb(130, 15, 134) ;
     font-size: 28px;
     padding: 70px 0 10px 0;
   }
@@ -169,15 +175,16 @@ body{
     margin: 0 auto;
     padding: 0px 20px 60px 20px;
     margin-top: 35px;
+    background-color: #fdb5fa;
     font-family: roboto;  
     text-align: left !important;
-   box-shadow: 0 19px 38px rgba(85, 11, 85, 0.479), 0 15px 12px rgba(75, 15, 60, 0.452); 
+    box-shadow: 0 49px 68px rgba(107, 104, 107, 0.479), 0 15px 12px rgba(95, 93, 95, 0.452); 
   }
   
   .register-form h1 {
-    text-align: left;
-    color:rgb(0, 0, 0) ;
-    font-size: 22px;
+    text-align: center;
+    color:rgb(216, 25, 223) ;
+    font-size: 28px;
     padding: 70px 0 10px 0;
   }
   .register-form input[type="password"],

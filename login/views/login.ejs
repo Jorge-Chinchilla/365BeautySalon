@@ -14,8 +14,12 @@
     <div class="login-form">
         <h2>Acceso 365 Beauty Salon</h2>
         <form action="auth" method="post">
-            <input type="text" name="user" id="user" placeholder="User" required>
-            <input type="password" name="pass" id="pass" placeholder="Password" required>
+            <label for="user">Nombre Usuario</label>
+            <input type="text" name="user" id="user" placeholder="Usuario" required>
+            
+            <label for="pass">Contraseña</label>
+            <input type="password" name="pass" id="pass" placeholder="Contraseña" required>
+            
             <input type="submit" class="btn-login" value="Ingresa">
             <a href="register"><input type="button" class="btn-register" value="Registrate"></a>
         </form>
