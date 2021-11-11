@@ -18,7 +18,7 @@ router.post('/add_producto', async (req, res)=>{
         categoria_id 
     };
     await pool.query('insert into productos set ?', [newProducto]);
-    res.send('recivido');
+    res.send('recibido');
 });
 
 router.get('/lista_producto', async (req, res)=>{
