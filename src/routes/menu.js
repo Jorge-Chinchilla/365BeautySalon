@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const pool = require('../database');
+const { isLoggedIn } = require('../lib/authRoutes');
 
-router.get('/add_producto', (req,res)=>{
+router.get('/add_producto', isLoggedIn, (req,res)=>{
     res.render('menu/add_producto');
 });
 
@@ -21,12 +22,12 @@ router.post('/add_producto', async (req, res)=>{
     res.send('recibido');
 });
 
-router.get('/lista_producto', async (req, res)=>{
+router.get('/lista_producto', isLoggedIn, async (req, res)=>{
     const productos = await pool.query('select * from productos');
     res.render('menu/lista_producto', {productos})
 })
 
-router.get('/', async (req, res)=>{
+router.get('/', isLoggedIn, async (req, res)=>{
     res.render('menu/menu');
 })
 
