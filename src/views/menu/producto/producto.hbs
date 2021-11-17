@@ -3,6 +3,25 @@
 <div class="container p-4">
     <div class="row">
         {{#each productos}}
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title text-uppercase">
+                        {{nombre}}
+                    </h3>
+                    <p class="m-2">{{id}}</p>
+                    <a href=""><input type="button" value="Editar"></a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        <a href="add_producto"><input type="button" value="Agregar Nuevo"></a>
+    </div>
+</div>
+
+<!--<div class="container p-4">
+    <div class="row">
+        {{#each productos}}
             <lu>
                 <label class="m-1" > Producto ID: {{id}}</label><label class="m-1">Nombre: {{nombre}}</label>
                 <label class="m-1">Cantidad: {{cantidad}}</label><label class="m-1">Precio Compra: {{precio_compra}}</label>

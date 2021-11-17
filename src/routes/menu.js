@@ -8,5 +8,4 @@ router.get('/', isLoggedIn, async (req, res)=>{
     res.render('menu/menu');
 })
 
-
 module.exports = router;
