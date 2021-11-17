@@ -24,7 +24,7 @@ router.post('/add_producto', async (req, res)=>{
         categoria_id 
     };
     await pool.query('insert into productos set ?', [newProducto]);
-    res.send('recibido');
+    res.redirect('producto');
 });
 
 module.exports = router;
