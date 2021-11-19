@@ -7,7 +7,13 @@ const { isLoggedIn } = require('../lib/authRoutes');
 router.get('/producto', isLoggedIn, async (req, res)=>{
     const productos = await pool.query('select * from productos');
     res.render('menu/producto/producto', {productos})
-})
+});
+
+router.get('/info_producto/:id', isLoggedIn, async (req, res)=>{
+    const {id} = req.params;
+    const infoProducto = await pool.query('select * from productos where id = ?', [id]);
+    res.render('menu/producto/info_producto', {infoProducto: infoProducto[0]});
+});
 
 router.get('/add_producto', isLoggedIn, (req,res)=>{
     res.render('menu/producto/add_producto');
