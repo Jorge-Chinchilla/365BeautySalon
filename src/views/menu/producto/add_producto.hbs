@@ -7,27 +7,27 @@
                 <div class="card-body">
                     <form action="/menu/add_producto" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="id" placeholder="Producto ID" autofocus>
+                            <input type="text" class="form-control" name="_id" placeholder="Id" autofocus required>
                         </div>
                         <label for=""></label>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre Producto">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre Producto" required>
                         </div>
                         <label for=""></label>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="cantidad" placeholder="Cantidad">
+                            <input type="number" class="form-control" name="cantidad" placeholder="Cantidad" required>
                         </div>
                         <label for=""></label>
                         <div class="form-group">
-                            <input type="number" step="0.01" class="form-control" name="precio_compra" placeholder="Precio Compra">
+                            <input type="number" step="0.01" class="form-control" name="precio_compra" placeholder="Precio Compra" required>
                         </div>
                         <label for=""></label>
                         <div class="form-group">
-                            <input type="number" step="0.01" class="form-control" name="precio_venta" placeholder="Precio Venta">
+                            <input type="number" step="0.01" class="form-control" name="precio_venta" placeholder="Precio Venta" required>
                         </div>
                         <label for=""></label>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="categoria_id" placeholder="Categoria">
+                            <input type="text" class="form-control" name="categoria" placeholder="Categoria" required>
                         </div>
                         <label for=""></label>
                         <div class="form-group">

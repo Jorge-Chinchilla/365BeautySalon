@@ -1,13 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
 const session = require('express-session');
 const path = require('path');
 const flash = require('connect-flash');
 const passport = require('passport');
-const MySqlStore= require('express-mysql-session');
-
-const {database}=require('./keys'); 
+const database = require('./database')
 
 //Inicializando
 const app = express();
@@ -29,23 +28,23 @@ app.set('view engine', '.hbs');
 //Middlewares
 app.use(session({
     secret: 'secret',
-    resav: false,
-    saveUninitialized: false,
-    store: MySqlStore(database)
+    resav: true,
+    saveUninitialized: true
 }));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 app.use(express.json());
-app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+app.use(flash());
 
 //Variable globales
 app.use((req, res, next)=>{
-    app.locals.success = req.flash('success');
-    app.locals.message = req.flash('message');
+    app.locals.success_msg = req.flash('success_msg');
+    app.locals.error_msg = req.flash('error_msg');
+    app.locals.error = req.flash('error');
     app.locals.user = req.user;
     next();
 })

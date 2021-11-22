@@ -1,28 +1,11 @@
-const mysql = require('mysql');
-const { promisify } = require('util');
+const mongoose = require('mongoose')
+const { mongodb } = require('./keys')
 
-const { database } = require('./keys');
+const database = mongoose.connect(`mongodb://${mongodb.host}:${mongodb.port}/${mongodb.database}`)
+.then((db)=>{
+    console.log('Conectado a la BD')
+}).catch((err)=>{
+    console.log('Ha ocurrido un error: ' + err)
+})
 
-const pool = mysql.createPool(database);
-
-pool.getConnection((err, connection) => {
-    if (err) {
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-            console.error('DATABASE CONNECTION WAS CLOSED');
-        }
-        if (err.code === 'ER_CON_COUNT_ERROR') {
-            console.error('DATABASE HAS TOO MANY CONNECTIONS');
-        }
-        if (err.code === 'ECONNREFUSED') {
-            console.error('DATABASE CONNECTION WAS REFUCED');
-        }
-    }
-
-    if (connection) connection.release();
-    console.log('DB CONECTADA');
-    return;
-});
-
-pool.query = promisify(pool.query);
-
-module.exports = pool;
+module.exports = database;

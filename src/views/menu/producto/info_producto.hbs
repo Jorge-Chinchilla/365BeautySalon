@@ -1,5 +1,5 @@
 {{> navigation }}
-
+<form action="/info_producto/{{producto._id}}?_method=PUT" method="POST">
 <label>NOMBRE <br> {{infoProducto.nombre}}</label>
 <br>
 <label>ID: <br> {{infoProducto.id}}</label>
@@ -12,6 +12,9 @@
 <br>
 <label>CATEGORIA: <br> {{infoProducto.categoria_id}}</label>
 <br>
-<label>FECHA DE REGISTRO: <br> {{infoProducto.fecha_ingreso}}</label>
+<label>FECHA DE REGISTRO: <br> {{infoProducto.fecha}}</label>
+</form>
+
 
 <a href="../producto"><input type="button" value="Atras"></a>
+<a href="/menu/edit_producto"><input type="button" value="Editar"></a>

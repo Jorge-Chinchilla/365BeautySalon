@@ -1,9 +1,9 @@
 <div class="login-form">
     <h1>365 Beauty Salon</h1>
     <form action="/registro" method="POST">
-        <input type="text" name="nombre_completo" placeholder="Nombre" autofocus required>
-        <input type="text" name="nombre_usuario" placeholder="Usuario" required>
+        <input type="text" name="nombre_usuario" placeholder="Usuario" value="{{nombre_usuario}}" required>
         <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirmPassword" placeholder="Confirmar Password" required>
         <input type="submit" class="btn-login" value="Registro">
     </form>
 </div>

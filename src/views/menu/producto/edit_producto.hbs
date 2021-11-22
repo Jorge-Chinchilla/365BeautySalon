@@ -1,0 +1,16 @@
+{{> navigation }}
+<form action="/edit_producto/{{producto.nombre}}?_method=PUT" method="POST">
+<input type="text" name="title" class="form-control" value= "{{infoProducto.nombre}}">
+<br>
+<input type="text" name="title" class="form-control" value= "{{infoProducto.id}}">
+<br>
+<input type="text" name="title" class="form-control" value= "{{infoProducto.cantidad}}">
+<br>
+<label>PRECIO COMPRA: <br> {{infoProducto.precio_compra}}</label>
+<br>
+<label>PRECIO VENTA: <br> {{infoProducto.precio_venta}}</label>
+<br>
+<label>CATEGORIA: <br> {{infoProducto.categoria_id}}</label>
+<br>
+<label>FECHA DE REGISTRO: <br> {{infoProducto.fecha}}</label>
+</form>

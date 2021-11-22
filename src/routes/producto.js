@@ -1,36 +1,36 @@
 const express = require('express');
 const router = express.Router();
 
-const pool = require('../database');
-const { isLoggedIn } = require('../lib/authRoutes');
+const Productos = require('../models/productos');
+const { isAuthenticated } = require('../lib/helpers');
 
-router.get('/producto', isLoggedIn, async (req, res)=>{
-    const productos = await pool.query('select * from productos');
-    res.render('menu/producto/producto', {productos})
+router.get('/producto', async (req, res) => {
+    const productos = await Productos.find().lean();
+    res.render('menu/producto/producto', { productos });
 });
 
-router.get('/info_producto/:id', isLoggedIn, async (req, res)=>{
-    const {id} = req.params;
-    const infoProducto = await pool.query('select * from productos where id = ?', [id]);
-    res.render('menu/producto/info_producto', {infoProducto: infoProducto[0]});
-});
-
-router.get('/add_producto', isLoggedIn, (req,res)=>{
+router.get('/add_producto', (req, res) => {
     res.render('menu/producto/add_producto');
 });
 
-router.post('/add_producto', async (req, res)=>{
-    const { id, nombre, cantidad, precio_compra, precio_venta, categoria_id } = req.body;
-    const newProducto = {
-        id,
-        nombre, 
-        cantidad, 
-        precio_compra, 
-        precio_venta, 
-        categoria_id 
-    };
-    await pool.query('insert into productos set ?', [newProducto]);
-    res.redirect('producto');
+router.get('/info_producto/:id', async (req, res) => {
+    const infoProducto = await Productos.findById(req.params.id).lean();
+    console.log(infoProducto);
+    res.render('menu/producto/info_producto', { infoProducto });
+});
+
+router.get('/edit_producto', async (req, res) => {
+    const editProducto = await Productos.findById(req.params.id).lean();
+    console.log(editProducto);
+    res.render('menu/producto/edit_producto', { editProducto });
+});
+
+
+router.post('/add_producto', async (req, res) => {
+    const { _id, nombre, cantidad, precio_compra, precio_venta, categoria } = req.body;
+    const newProducto = new Productos({ _id, nombre, cantidad, precio_compra, precio_venta, categoria });
+    await newProducto.save();
+    res.redirect('/menu/producto');
 });
 
 module.exports = router;
