@@ -16,7 +16,7 @@ router.post('/registro', async (req, res, done) => {
         errors.push({ text: "Las contraseñas no coinciden" });
     }
     if (password.length < 8) {
-        errors.push({ text: "La contraseña debe tener almeno 8 caracteres" });
+        errors.push({ text: "La contraseña debe tener almenos 8 caracteres" });
     }
     if (errors.length > 0) {
         res.render("auth/registro", {

@@ -1,20 +1,18 @@
 {{> navigation }}
-<form action="/info_producto/{{producto._id}}?_method=PUT" method="POST">
-<label>NOMBRE <br> {{infoProducto.nombre}}</label>
-<br>
-<label>ID: <br> {{infoProducto.id}}</label>
-<br>
-<label>CANTIDAD: <br> {{infoProducto.cantidad}}</label>
-<br>
-<label>PRECIO COMPRA: <br> {{infoProducto.precio_compra}}</label>
-<br>
-<label>PRECIO VENTA: <br> {{infoProducto.precio_venta}}</label>
-<br>
-<label>CATEGORIA: <br> {{infoProducto.categoria_id}}</label>
-<br>
-<label>FECHA DE REGISTRO: <br> {{infoProducto.fecha}}</label>
-</form>
-
-
-<a href="../producto"><input type="button" value="Atras"></a>
+    {{#each infoProducto}}
+    <label >Nombre <br> {{nombre}}</label>
+    <br>
+    <label>ID: <br> {{id}}</label>
+    <br>
+    <label>CANTIDAD: <br> {{cantidad}}</label>
+    <br>
+    <label>PRECIO COMPRA: <br> {{precio_compra}}</label>
+    <br>
+    <label>PRECIO VENTA: <br> {{precio_venta}}</label>
+    <br>
+    <label>CATEGORIA: <br> {{categoria}}</label>
+    <br>
+    <label>FECHA DE REGISTRO: <br> {{fecha}}</label>
+    {{/each}}
+<a href="../"><input type="button" value="Atras"></a>
 <a href="/menu/edit_producto"><input type="button" value="Editar"></a>

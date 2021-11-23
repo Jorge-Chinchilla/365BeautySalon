@@ -9,14 +9,14 @@
                      <h3 class="card-title text-uppercase">
                         {{nombre}}
                     </h3>
-                    <p class="m-2">{{_id}}</p>
+                    <p class="m-2">{{id}}</p>
                     <p class="m-2">En existencia {{cantidad}}</p>
-                    <a href="info_producto/{{_id}}"><input type="button" value="Informacion"></a>
+                    <a href="/menu/producto/info_producto/{{id}}"><input type="button" value="Informacion"></a>
                 </div>
             </div>
         </div>
         {{/each}}
-        <a href="add_producto"><input type="button" value="Agregar Nuevo"></a>
+        <a href="/menu/producto/add_producto"><input type="button" value="Agregar Nuevo"></a>
     </div>
 </div>
 
