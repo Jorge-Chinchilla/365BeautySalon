@@ -35,7 +35,10 @@ router.post('/registro', async (req, res, done) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('auth/login');
+    res.render('auth/login',{
+        title:"login",
+        style:"login.css"
+    });
 })
 
 router.post('/login', passport.authenticate('local',{

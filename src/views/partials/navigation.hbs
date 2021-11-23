@@ -1,27 +1,103 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        {{#if user}}
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/menu">Principal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Cerrar Sesion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-       {{/if}}
-      </ul>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="#">Navbar</a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"-->
+<!--      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--      <ul class="navbar-nav">-->
+<!--        {{#if user}}-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" aria-current="page" href="/menu">Principal</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Features</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="/logout">Cerrar Sesion</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link disabled">Disabled</a>-->
+<!--        </li>-->
+<!--       {{/if}}-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-color">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-file-invoice-dollar fa-lg"></i> Facturación
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="#">Temporal</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-boxes"></i> Inventario
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="#">Ver inventario</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Editar Inventario</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Agregar producto</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-concierge-bell"></i> Servicios
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="#">Ver servicios</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Editar servicios</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Agregar servicio</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-calendar-check"></i> Citas
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="#">Citas Pendientes</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Historial de citas</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Citas canceladas</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-users-cog"></i> Empleados
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="#">Ver empleados</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Agregar Empleado (TMP)</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-users-cog"></i> Promociones
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="#">Ver promociones</a></li>
+                    <li><a class="dropdown-item drop-item" href="#">Editar Promociones</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-  </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#">365 Beauty Salon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <div class="nav-item log-out-circle-nav">
+                <i class="fas fa-sign-out-alt fa-lg nav-item fa-cog"></i>
+            </div>
+        </ul>
+    </div>
 </nav>
