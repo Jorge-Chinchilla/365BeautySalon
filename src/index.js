@@ -24,7 +24,6 @@ app.engine('.hbs', exphbs({
 }))
 app.set('view engine', '.hbs');
 
-
 //Middlewares
 app.use(session({
     secret: 'secret',

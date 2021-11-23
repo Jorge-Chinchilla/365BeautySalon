@@ -25,8 +25,7 @@ p {
     padding: 3% 15% 7%;
 }
 
-/*Headings section*/
-
+/* Landing page */
 .big-heading {
     font-family: "Montserrat", sans-serif;
     font-size: 3.5rem;
@@ -39,7 +38,6 @@ p {
     color: #ffffff;
 }
 
-/*Navigation bar*/
 
 .navbar {
     padding: 0 0 4.5rem;
@@ -61,13 +59,11 @@ p {
     font-weight: 300;
 }
 
-/*Download buttons*/
 
 .download-button {
     margin: 5% 3% 5% 0;
 }
 
-/*Title image*/
 
 .title-image {
     width: 50%;
@@ -76,7 +72,6 @@ p {
     right: 30%;
 }
 
-/*features Section*/
 
 #features {
     padding: 7% 15%;
@@ -98,7 +93,6 @@ text-align: center;
     color: #ff4c68;
 }
 
-/*Testimnials section*/
 
 #testimonials {
     padding: 7% 15%;
@@ -115,7 +109,6 @@ text-align: center;
 
 .carousel-item {}
 
-/*Press section*/
 #press {
     background-color: #ef8172;
     text-align: center;
@@ -127,7 +120,6 @@ text-align: center;
     margin: 20px 20px 50px;
 }
 
-/*Pricing section*/
 
 #pricing {
     padding: 100px;
@@ -137,7 +129,6 @@ text-align: center;
 .pricing-column {
     padding: 3% 2%;
 }
-/*CTA section*/
 
 #cta {
     background-color: #ff4c68;
@@ -153,7 +144,6 @@ text-align: center;
     line-height: 1.5;
 }
 
-/*Footer section*/
 
 #footer {
     padding: 7% 15%;
@@ -176,10 +166,12 @@ text-align: center;
     }
 
 }
+/* Landing page Ending*/
 
 /*Login Page*/
 .contenedor-login{
-    background-color: #ff4c68;
+    /*background-color: #ff4c68;*/
+    background: linear-gradient(90deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b);
     padding: 4rem;
     height: 100%;
 }
