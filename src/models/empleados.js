@@ -2,11 +2,13 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const EmpleadoSchema = new Schema({
+    id: String,
     nombre: String,
-    telefono: Number,
-    correo: String
+    apellido: String,
+    telefono: String,
+    correo: String,
+    cargo: String,
+    fecha: { type: Date, default: Date.now }
 })
 
-const Empleado = mongoose.model('Empleado', EmpleadoSchema)
-
-module.exports = Empleado
+module.exports = mongoose.model('empleados', EmpleadoSchema)

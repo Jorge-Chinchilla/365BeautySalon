@@ -1,0 +1,44 @@
+{{> navigation }}
+{{#each editEmpleado}}
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/menu/empleado/edit_empleado/{{_id}}" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="id" value="{{id}}" autofocus required>
+                        </div>
+                        <label for=""></label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nombre" value="{{nombre}}" required>
+                        </div>
+                        <label for=""></label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="apellido" value="{{apellido}}" required>
+                        </div>
+                        <label for=""></label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="telefono" value="{{telefono}}" required>
+                        </div>
+                        <label for=""></label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="correo" value="{{correo}}" required>
+                        </div>
+                        <label for=""></label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="cargo" value="{{cargo}}" required>
+                        </div>
+                        <label for=""></label>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Actualizar</button>
+                            <a href="/menu/empleado"><input type="button" value="Cancelar"></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/each}}

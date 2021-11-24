@@ -1,0 +1,21 @@
+{{> navigation }}
+{{#each infoEmpleado}}
+<label>ID: <br> {{id}}</label>
+<br>
+<label>NOMBRE: <br> {{nombre}}</label>
+<br>
+<label>APELLIDO: <br> {{apellido}}</label>
+<br>
+<label>TELEFONO: <br> {{telefono}}</label>
+<br>
+<label>CORREO: <br> {{correo}}</label>
+<br>
+<label>CARGO: <br> {{cargo}}</label>
+<br>
+<label>FECHA DE REGISTRO: <br> {{fecha}}</label>
+
+<a href="../"><input type="button" value="Atras"></a>
+<a href="/menu/empleado/edit_empleado/{{_id}}"><input type="button" value="Editar"></a>
+<a href="/menu/empleado/del_empleado/{{_id}}"><input type="button" value="Eliminar"></a>
+
+{{/each}}
