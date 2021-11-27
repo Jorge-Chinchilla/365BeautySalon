@@ -2,7 +2,10 @@ const Productos = require('../models/productos')
 
 const getProductos = async (req, res) => {
     const productos = await Productos.find().lean();
-    res.render('menu/producto/producto', { productos });
+    res.render('inventario/inventario', { productos,
+        title:"login",
+        style:"producto.css"
+    });
 }
 
 const getCreateProducto = (req, res) => {
