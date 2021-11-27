@@ -20,16 +20,15 @@ p {
 
 
 /*BLOQUE DE CSS UNIVERSAL PARA TODAS LAS PAGINAS FINAL*/
-/*BODY*/
+
+/*BODY GENERAL*/
 body {
     font-family: "Montserrat-Black", sans-serif;
     background: linear-gradient(90deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b);
 }
-/*BODY END*/
+/*BODY GENERAL END*/
 
 /*Login Page*/
-
-
 .content{
     margin: 8%;
     background-color: #fff;
@@ -64,13 +63,13 @@ body {
 
 
 .form-control:focus{
-
     color: #495057;
     background-color: #fff;
     border-color: #fff;
     outline: 0;
     box-shadow: none;
 }
+
 .birthday-section{
     padding: 15px;
 }
