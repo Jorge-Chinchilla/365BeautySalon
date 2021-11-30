@@ -41,7 +41,7 @@ const createProducto = async (req, res) => {
         categoria: data.categoria
     });
     await newProducto.save();
-    res.redirect('/menu/producto');
+    res.redirect('/producto');
 }
 
 const updateProducto = async (req, res) => {

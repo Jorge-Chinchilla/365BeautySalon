@@ -51,8 +51,8 @@ app.use((req, res, next)=>{
 //Rutas
 app.use(require('./routes'));
 app.use(require('./routes/autenticacion'));
-app.use('/menu', require('./routes/producto'));
-app.use('/menu', require('./routes/empleado'));
+app.use('/', require('./routes/producto'));
+app.use('/', require('./routes/empleado'));
 app.use('/menu', require('./routes/menu'));
 
 //Public
