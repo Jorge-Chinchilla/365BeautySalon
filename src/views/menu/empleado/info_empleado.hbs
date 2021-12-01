@@ -1,21 +1,39 @@
 {{> navigation }}
 {{#each infoEmpleado}}
-<label>ID: <br> {{id}}</label>
-<br>
-<label>NOMBRE: <br> {{nombre}}</label>
-<br>
-<label>APELLIDO: <br> {{apellido}}</label>
-<br>
-<label>TELEFONO: <br> {{telefono}}</label>
-<br>
-<label>CORREO: <br> {{correo}}</label>
-<br>
-<label>CARGO: <br> {{cargo}}</label>
-<br>
-<label>FECHA DE REGISTRO: <br> {{fecha}}</label>
 
-<a href="../"><input type="button" value="Atras"></a>
-<a href="/menu/empleado/edit_empleado/{{_id}}"><input type="button" value="Editar"></a>
-<a href="/menu/empleado/del_empleado/{{_id}}"><input type="button" value="Eliminar"></a>
+    <div class="container">
+        <div class="box">
+            <div class="Heading">
+                <h2>{{nombre}} {{apellido}}</h2>
+                <h4>{{cargo}}</h4>
+                <h4>ID: {{id}}</h4>
+                <h4>Telefono: {{telefono}}</h4>
+                <h4>Correo: {{correo}}</h4>
+                <h4>Registro: {{fecha}}</h4>
+                <a href="/empleado/edit_empleado/{{id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
+                <a href="/empleado/del_empleado/{{id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
+            </div>
+
+        </div>
+    </div>
+
+
+<!--<label>ID: <br> {{id}}</label>-->
+<!--<br>-->
+<!--<label>NOMBRE: <br> {{nombre}}</label>-->
+<!--<br>-->
+<!--<label>APELLIDO: <br> {{apellido}}</label>-->
+<!--<br>-->
+<!--<label>TELEFONO: <br> {{telefono}}</label>-->
+<!--<br>-->
+<!--<label>CORREO: <br> {{correo}}</label>-->
+<!--<br>-->
+<!--<label>CARGO: <br> {{cargo}}</label>-->
+<!--<br>-->
+<!--<label>FECHA DE REGISTRO: <br> {{fecha}}</label>-->
+
+<!--<a href="../"><input type="button" value="Atras"></a>-->
+<!--<a href="/menu/empleado/edit_empleado/{{_id}}"><input type="button" value="Editar"></a>-->
+<!--<a href="/menu/empleado/del_empleado/{{_id}}"><input type="button" value="Eliminar"></a>-->
 
 {{/each}}

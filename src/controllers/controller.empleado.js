@@ -24,13 +24,13 @@ const getInfoEmpleado = async (req, res) => {
 
 const getEditEmpleado = async (req, res) => {
     const param = req.params.id;
-    const editEmpleado = await Empleados.find({ _id: param }).lean();
+    const editEmpleado = await Empleados.find({ id: param }).lean();
     res.render('menu/empleado/edit_empleado', { editEmpleado });
 };
 
 const getDeleteEmpleado = async (req, res) => {
     const param = req.params.id;
-    const delEmpleado = await Empleados.find({ _id: param }).lean();
+    const delEmpleado = await Empleados.find({ id: param }).lean();
     res.render('menu/empleado/del_empleado', { delEmpleado });
 }
 
@@ -51,13 +51,13 @@ const createEmpleado = async (req, res) => {
 const updateEmpleado = async (req, res) => {
     const { id, nombre, apellido, telefono, correo } = req.body;
     await Empleados.findByIdAndUpdate(req.params.id, { id, nombre, apellido, telefono, correo }).lean();
-    res.redirect('/menu/empleado')
+    res.redirect('/empleado')
 }
 
 const deleteEmpleado = async (req, res)=>{
     await Empleados.findByIdAndDelete(req.params.id);
-    req.flash("success_msg", "Datos de Empleado Eliminados");
-    res.redirect('/menu/empleado');
+    // req.flash("success_msg", "Datos de Empleado Eliminados");
+    res.redirect('/empleado');
 }
 
 module.exports = {

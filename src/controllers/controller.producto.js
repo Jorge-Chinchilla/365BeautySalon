@@ -24,13 +24,13 @@ const getInfoProducto = async (req, res) => {
 
 const getEditProducto = async (req, res) => {
     const param = req.params.id;
-    const editProducto = await Productos.find({ _id: param }).lean();
+    const editProducto = await Productos.find({ id: param }).lean();
     res.render('menu/producto/edit_producto', { editProducto });
 };
 
 const getDeleteProducto = async (req, res) => {
     const param = req.params.id;
-    const delProducto = await Productos.find({ _id: param }).lean();
+    const delProducto = await Productos.find({ id: param }).lean();
     res.render('menu/producto/del_producto', { delProducto });
 }
 
@@ -51,13 +51,13 @@ const createProducto = async (req, res) => {
 const updateProducto = async (req, res) => {
     const { id, nombre, cantidad, precio_compra, precio_venta, categoria } = req.body;
     await Productos.findByIdAndUpdate(req.params.id, { id, nombre, cantidad, precio_compra, precio_venta, categoria }).lean();
-    res.redirect('/menu/producto')
+    res.redirect('/producto')
 }
 
 const deleteProducto = async (req, res)=>{
     await Productos.findByIdAndDelete(req.params.id);
-    req.flash("success_msg", "Producto Eliminado");
-    res.redirect('/menu/producto');
+    // req.flash("success_msg", "Producto Eliminado");
+    res.redirect('/producto');
 }
 
 module.exports = {

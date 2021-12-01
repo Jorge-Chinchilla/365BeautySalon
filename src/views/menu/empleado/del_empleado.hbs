@@ -1,12 +1,12 @@
 {{> navigation }}
 {{#each delEmpleado}}
-    <form action="/menu/empleado/del_empleado/{{_id}}" method="post">
+    <form action="/empleado/del_empleado/{{_id}}" method="post">
         <h2>¿Desea eliminar el empleado de la plantilla?</h2>
         <input type="hidden" name="_id" value="{{_id}}">
         <h3>{{id}}</h3>
         <h3>{{nombre}}</h3>
 
         <button class="btn btn-success">Eliminar</button>
-        <a href="/menu/empleado"><input type="button" value="Cancelar"></a>
+        <a href="/empleado"><input type="button" value="Cancelar"></a>
     </form>
 {{/each}}

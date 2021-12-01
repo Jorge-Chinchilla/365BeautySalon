@@ -1,12 +1,12 @@
 {{> navigation }}
 {{#each delProducto}}
-    <form action="/menu/producto/del_producto/{{_id}}" method="post">
+    <form action="/producto/del_producto/{{_id}}" method="post">
         <h2>¿Desea eliminar este producto?</h2>
         <input type="hidden" name="_id" value="{{_id}}">
         <h3>{{id}}</h3>
         <h3>{{nombre}}</h3>
 
         <button class="btn btn-success">Eliminar</button>
-        <a href="/menu/producto"><input type="button" value="Cancelar"></a>
+        <a href="/producto"><input type="button" value="Cancelar"></a>
     </form>
 {{/each}}

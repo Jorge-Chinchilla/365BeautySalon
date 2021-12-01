@@ -1,7 +1,6 @@
 {{> navigation }}
-
-
 {{#each infoProducto}}
+
 <div class="container">
     <div class="box">
         <div class="Heading">
@@ -11,14 +10,12 @@
             <h4>Disponible: {{cantidad}}</h4>
             <h4>Precio de Venta: {{precio_venta}}Lps</h4>
             <h4>Precio de Compra: {{precio_compra}}Lps</h4>
-            <h4>Registro:{{fecha}}</h4>
-            <a href="/menu/producto/edit_producto/{{_id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
-            <a href="/menu/producto/del_producto/{{_id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
+            <h4>Registro: {{fecha}}</h4>
+            <a href="/producto/edit_producto/{{id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
+            <a href="/producto/del_producto/{{id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
         </div>
-
     </div>
 </div>
-
 {{/each}}
 
 
