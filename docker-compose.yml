@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  web:
+    container_name: Beauty_Salon_365_app
+    restart : always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+  mongo:
+    container_name: mymongodatabase
+    image: mongo
+    ports:
+      - "27017:27017"
+    logging:
+      driver: none
