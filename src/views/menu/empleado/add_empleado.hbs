@@ -1,6 +1,4 @@
 {{> navigation }}
-
-
 <div class="container p-12">
     <div class="row">
         <div class="col-md-12 mx-auto principal d-flex justify-content-center">
@@ -9,7 +7,7 @@
                     <form action="/empleado/add_empleado" method="post">
                         <label for="">Id</label>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="id" placeholder="Id" autofocus required>
+                            <input type="text" class="form-control" name="id" placeholder="0000-0000-00000" autofocus required>
                         </div>
                         <label for="">Nombre</label>
                         <div class="form-group">
@@ -25,7 +23,7 @@
                         </div>
                         <label for="">Correo</label>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="correo" placeholder="Correo" required>
+                            <input type="email" class="form-control" name="correo" placeholder="Correo" required>
                         </div>
                         <label for="">Cargo</label>
                         <div class="form-group">
@@ -35,7 +33,7 @@
                         <div class="form-group d-flex justify-content-center">
                             <label>
                                 <button class="btn btn-success">Guardar</button>
-                                <a href="../producto" class="btn btn-success">Cancelar</a>
+                                <a href="/empleado" class="btn btn-success">Cancelar</a>
                             </label>
                         </div>
                     </form>

@@ -1,23 +1,25 @@
 {{> navigation }}
 {{#each infoEmpleado}}
 
-    <div class="container">
-        <div class="box">
-            <div class="Heading">
-                <h2>{{nombre}} {{apellido}}</h2>
-                <h4>{{cargo}}</h4>
-                <h4>ID: {{id}}</h4>
-                <h4>Telefono: {{telefono}}</h4>
-                <h4>Correo: {{correo}}</h4>
-                <h4>Registro: {{fecha}}</h4>
+<div class="container col-md-12 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h2 class="card-title">{{nombre}} {{apellido}}</h2>
+            <h4>{{cargo}}</h4>
+            <h4>ID: {{id}}</h4>
+            <h4>Telefono: {{telefono}}</h4>
+            <h4>Correo: {{correo}}</h4>
+            <h4>Registro: {{fecha}}</h4>
+            <div class="text-right">
                 <a href="/empleado/edit_empleado/{{id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
                 <a href="/empleado/del_empleado/{{id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
             </div>
-
         </div>
     </div>
+</div>
 
 
+<!--Version vieja-->
 <!--<label>ID: <br> {{id}}</label>-->
 <!--<br>-->
 <!--<label>NOMBRE: <br> {{nombre}}</label>-->

@@ -1,18 +1,19 @@
 {{> navigation }}
 {{#each infoProducto}}
-
-<div class="container">
-    <div class="box">
-        <div class="Heading">
-            <h2>{{nombre}} </h2>
+<div class="container col-md-12 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h2 class="card-title">{{nombre}}</h2>
             <h4>ID: {{id}}</h4>
             <h4>Categoria: {{categoria}}</h4>
             <h4>Disponible: {{cantidad}}</h4>
             <h4>Precio de Venta: {{precio_venta}}Lps</h4>
             <h4>Precio de Compra: {{precio_compra}}Lps</h4>
             <h4>Registro: {{fecha}}</h4>
-            <a href="/producto/edit_producto/{{id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
-            <a href="/producto/del_producto/{{id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
+            <div class="text-right">
+                <a href="/producto/edit_producto/{{id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
+                <a href="/producto/del_producto/{{id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
+            </div>
         </div>
     </div>
 </div>

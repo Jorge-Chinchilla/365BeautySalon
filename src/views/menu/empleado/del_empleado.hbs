@@ -1,12 +1,44 @@
 {{> navigation }}
 {{#each delEmpleado}}
-    <form action="/empleado/del_empleado/{{_id}}" method="post">
-        <h2>¿Desea eliminar el empleado de la plantilla?</h2>
-        <input type="hidden" name="_id" value="{{_id}}">
-        <h3>{{id}}</h3>
-        <h3>{{nombre}}</h3>
+<div class="container col-md-12 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h2 class="card-title">¿Desea eliminar el empleado de la plantilla?</h2>
+            <form action="/empleado/del_empleado/{{_id}}" method="post">
+                <input type="hidden" name="_id" value="{{_id}}">
+                <h3>{{nombre}}</h3>
+                <h5>{{id}}</h5>
+                <div class="text-right">
+                    <a href="/empleado/info_empleado/{{id}}"><input type="button" value="Cancelar" class="btn btn-outline-dark"></a>
+                    <button class="btn btn-outline-danger">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-        <button class="btn btn-success">Eliminar</button>
-        <a href="/empleado"><input type="button" value="Cancelar"></a>
-    </form>
 {{/each}}
+
+<!--Version Vieja-->
+<!--    <div class="col-md-12 principal d-flex justify-content-center">-->
+<!--        <div class="card d-flex justify-content-center">-->
+<!--            <div class="row">-->
+<!--                <labeltitulo class="titulo"> <h2>¿Desea eliminar el empleado de la plantilla?</h2></labeltitulo>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--                <div class="row" >-->
+<!--                    <form action="/empleado/del_empleado/{{_id}}" method="post">-->
+<!--                        <input type="hidden" name="_id" value="{{_id}}">-->
+<!--                        <h3>{{nombre}}</h3>-->
+<!--                        <h5>{{id}}</h5>-->
+
+<!--                        <div class="col align-self-end">-->
+<!--                            One of three columns-->
+<!--                        </div>-->
+<!--                        <a href="/empleado/info_empleado/{{id}}"><input type="button" value="Cancelar" class="btn btn-outline-dark"></a>-->
+<!--                        <button class="btn btn-outline-danger">Eliminar</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
