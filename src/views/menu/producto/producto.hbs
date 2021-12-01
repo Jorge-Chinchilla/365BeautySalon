@@ -1,48 +1,61 @@
 {{> navigation }}
 
-<div class="justify-content-center">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <label class="mr-auto p-2">Inventario</label>
+<div class="container-fluid">
+    <div class="row query">
+        <div class="col-12">
+            <div class="">
+                <div class="row">
+                    <div class="col-lg-6 d-flex justify-content-center">
+                        <label class="label">Inventario </label>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-center">
+                        <form class="form-inline">
+                            <div class="input-group mb-3 ">
+                                <input type="text" class="form-control" placeholder="Nombre" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="button">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </div>
+    <hr class="regla">
+    <div class="row">
+        <div class="col-12 product-list">
+            <div class="container p-4">
+                <div class="row table-responsive-sm">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Venta</th>
+                            <th scope="col">Compra</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each productos}}
+                        <tr>
+                            <td><a href="/producto/info_producto/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
+                            <td>{{nombre}}</td>
+                            <td>{{categoria}}</td>
+                            <td>{{cantidad}}</td>
+                            <td>{{precio_venta}} Lps</td>
+                            <td>{{precio_compra}}</td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-
-<section class="d-flex justify-content-center product-list">
-    <div class="container p-4">
-        <div class="row table-responsive-sm">
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Venta</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                {{#each productos}}
-                <tr>
-                    <td><a href="/producto/info_producto/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
-                    <td>{{nombre}}</td>
-                    <td>{{categoria}}</td>
-                    <td>{{cantidad}}</td>
-                    <td>{{precio_venta}} Lps</td>
-                </tr>
-                {{/each}}
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-</section>
 <!--Version vieja-->
 
 

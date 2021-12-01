@@ -2,14 +2,18 @@ const Productos = require('../models/productos')
 
 const getProductos = async (req, res) => {
     const productos = await Productos.find().lean();
-    res.render('menu/producto/producto', { productos,
+    res.render('menu/producto/producto', {
+        productos,
         title:"login",
         style:"producto.css"
     });
 }
 
 const getCreateProducto = (req, res) => {
-    res.render('menu/producto/add_producto');
+    res.render('menu/producto/add_producto', {
+        title:'Agregar',
+        style:'add_producto.css'
+    });
 }
 
 const getInfoProducto = async (req, res) => {

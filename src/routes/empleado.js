@@ -4,7 +4,7 @@ const { isAuthenticated } = require('../lib/helpers');
 const controllerEmpleado = require('../controllers/controller.empleado')
 
 router.get('/empleado', controllerEmpleado.getEmpleado);
-router.get('/empleado/add_empleado', controllerEmpleado.getCreateEmpleado);
+router.get('/add_empleado', controllerEmpleado.getCreateEmpleado);
 router.get('/empleado/info_empleado/:id', controllerEmpleado.getInfoEmpleado);
 router.get('/empleado/edit_empleado/:id', controllerEmpleado.getEditEmpleado);
 router.get('/empleado/del_empleado/:id', controllerEmpleado.getDeleteEmpleado);

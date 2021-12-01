@@ -89,46 +89,32 @@ Navigation bar
 Navigation bar Ending
 */
 
-.container-fluid{
-    margin: 6% 0% 0% 0%;
+.card{
+    width: 50%;
+    border-radius: 25px;
+    background-color: #ff8296;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
-.label{
-    font-family: "Montserrat-Black", sans-serif;
-    font-weight: bold;
+.titulo{
     font-size: 3rem;
+    display: inline-block;
+}
+
+.principal{
+    margin-top: 10%;
+    border-radius: 25px;
+    background-color: #737b7c;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding: 3%;
 }
 
 .form-control{
+    width: 90%;
     border-radius: 25px;
-    border: #ff8296 solid thin;
-    color: #ff8296;
 }
 
-.btn-outline-primary{
-    background-color: #ff8296;
+label{
     color: white;
     font-weight: bold;
-    border: none;
-    border-bottom-right-radius: 25px;
-    border-radius: 0 100em 100em 0;
-}
-
-.query{
-    margin: 0% 20% 0% 20%;
-    color: #ff8296;
-    border-radius: 25px;
-}
-
-.regla {
-    height: 10px;
-    color: #ff8296;
-    background-image: linear-gradient(
-            90deg,
-            currentColor,
-            currentColor 33.33%,
-            transparent 33.33%,
-            transparent 100%);
-    background-size: 3px 100%;
-    width: 90%;
 }

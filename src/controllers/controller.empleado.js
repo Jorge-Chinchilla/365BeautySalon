@@ -2,11 +2,18 @@ const Empleados = require('../models/empleados')
 
 const getEmpleado = async (req, res) => {
     const empleados = await Empleados.find().lean();
-    res.render('menu/empleado/empleado', { empleados });
+    res.render('menu/empleado/empleado', {
+        empleados,
+        title: 'Empleados',
+        style: 'producto.css'
+    });
 }
 
 const getCreateEmpleado = (req, res) => {
-    res.render('menu/empleado/add_empleado');
+    res.render('menu/empleado/add_empleado', {
+        title: 'Agregar',
+        style: 'add_producto.css'
+    });
 }
 
 const getInfoEmpleado = async (req, res) => {
@@ -38,7 +45,7 @@ const createEmpleado = async (req, res) => {
         cargo: data.cargo,
     });
     await newEmpleado.save();
-    res.redirect('/menu/empleado');
+    res.redirect('/empleado');
 }
 
 const updateEmpleado = async (req, res) => {
