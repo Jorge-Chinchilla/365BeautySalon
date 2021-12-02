@@ -2,8 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ServicioSchema = new Schema({
+    id: String,
     nombre: String,
-    producto_ID: String
+    precio: Number
 })
 
 const Servicio = mongoose.model('Servicio', ServicioSchema)

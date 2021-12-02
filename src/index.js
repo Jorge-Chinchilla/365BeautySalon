@@ -53,6 +53,7 @@ app.use(require('./routes'));
 app.use(require('./routes/autenticacion'));
 app.use('/', require('./routes/producto'));
 app.use('/', require('./routes/empleado'));
+app.use('/', require('./routes/servicio'));
 app.use('/menu', require('./routes/menu'));
 
 //Public

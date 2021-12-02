@@ -11,7 +11,7 @@ const getProductos = async (req, res) => {
 
 const getCreateProducto = (req, res) => {
     res.render('menu/producto/add_producto', {
-        title:'Agregar',
+        title:'Agregar Producto',
         style:'add_producto.css'
     });
 }
