@@ -10,7 +10,7 @@
                     </div>
                     <div class="row">
                         <div class="card-body">
-                            <form action="/menu/producto/edit_producto/{{_id}}" method="post">
+                            <form action="/producto/edit_producto/{{_id}}" method="post">
                                 <div class="form-group">
                                     <label for="">Id</label>
                                     <input type="text" class="form-control" name="id" value="{{id}}" autofocus required>
@@ -29,7 +29,7 @@
                                 </div>
                                 <label for="">Precio de venta</label>
                                 <div class="form-group">
-                                    <input type="number" step="0.01" class="form-control" name="precio_venta" placeholder="{{precio_venta}}" required>
+                                    <input type="number" step="0.01" class="form-control" name="precio_venta" value="{{precio_venta}}" required>
                                 </div>
                                 <label for="">Categoría</label>
                                 <div class="form-group">

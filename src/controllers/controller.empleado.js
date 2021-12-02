@@ -49,8 +49,8 @@ const createEmpleado = async (req, res) => {
 }
 
 const updateEmpleado = async (req, res) => {
-    const { id, nombre, apellido, telefono, correo } = req.body;
-    await Empleados.findByIdAndUpdate(req.params.id, { id, nombre, apellido, telefono, correo }).lean();
+    const { id, nombre, apellido, telefono, correo, cargo } = req.body;
+    await Empleados.findByIdAndUpdate(req.params.id, { id, nombre, apellido, telefono, correo, cargo }).lean();
     res.redirect('/empleado')
 }
 
