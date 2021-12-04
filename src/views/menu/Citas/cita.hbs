@@ -31,7 +31,6 @@
                         <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Numero</th>
                             <th scope="col">Servicio</th>
@@ -41,8 +40,7 @@
                         <tbody>
                         {{#each cita}}
                         <tr>
-                            <td><a href="/info_cita/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
-                            <td>{{id}}</td>
+                            <td><a href="/info_cita/{{_id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
                             <td>{{nombre}}</td>
                             <td>{{numero}}</td>
                             <td>{{servicio}}</td>

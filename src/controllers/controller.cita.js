@@ -20,8 +20,8 @@ const getCreateCita = async (req, res) => {
 }
 
 const getInfoCita = async (req, res) => {
-    const param = req.params.id;
-    const infoCita = await Cita.find({ id: param }).lean();
+    const param = req.params._id;
+    const infoCita = await Cita.find({ _id: param }).lean();
     res.render('menu/Citas/info_cita', {
         infoCita,
         title:'Agregar Cita',
@@ -44,7 +44,6 @@ const getDeleteCita = async (req, res) => {
 const createCita = async (req, res) => {
     const data = req.body;
     const newCita = new Cita({
-        id: data.id,
         nombre: data.nombre,
         correo: data.correo,
         numero: data.numero,
