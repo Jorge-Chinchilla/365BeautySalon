@@ -1,45 +1,88 @@
 {{> navigation }}
-<div class="container p-12">
-    <div class="row">
-        <div class="col-md-12 mx-auto principal d-flex justify-content-center">
-            <div class="card">
-                <div class="card-body">
-                    <form action="/empleado/add_empleado" method="post">
-                        <label for="">Id</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="id" placeholder="0000-0000-00000" autofocus required>
-                        </div>
-                        <label for="">Nombre</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
-                        </div>
-                        <label for="">Apellido</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>
-                        </div>
-                        <label for="">Telefono</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="telefono" placeholder="Telefono" required>
-                        </div>
-                        <label for="">Correo</label>
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="correo" placeholder="Correo" required>
-                        </div>
-                        <label for="">Cargo</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="cargo" placeholder="Cargo" required>
-                        </div>
-                        <label for=""></label>
-                        <div class="form-group d-flex justify-content-center">
-                            <label>
-                                <button class="btn btn-success">Guardar</button>
-                                <a href="/empleado" class="btn btn-success">Cancelar</a>
-                            </label>
-                        </div>
-                    </form>
+<br>
+<br>
+<br>
+<section class="mb-3 d-flex justify-content-center">
+    <div class="card col-sm-3 p-10">
+        <div class="mb-3 text-center">
+            <h3>Agregar Empleado</h3>
+        </div>
+        <div class="mb-2">
+            <form action="/empleado/add_empleado" method="post">
+                <div class="mb-2">
+                    <label for="id">Identidad</label>
+                    <input type="text" class="form-control" name="id" id="id" required>
                 </div>
-            </div>
+                <div class="mb-2">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" required>
+                </div>
+                <div class="mb-2">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido" required>
+                </div>
+                <div class="mb-2">
+                    <label for="telefono">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono">
+                </div>
+                <div class="mb-2">
+                    <label for="correo">Correo</label>
+                    <input type="email" class="form-control" id="correo" name="correo">
+                </div>
+                <div class="mb-2">
+                    <label for="cargo">Cargo</label>
+                    <input type="text" class="form-control" id="cargo" name="cargo">
+                </div>
+                <div class="mb-2 text-center">
+                    <button class="btn btn-success">Guardar</button>
+                    <a class="btn btn btn-danger" href="/cita">Cancelar</a>
+                </div>
+
+            </form>
         </div>
     </div>
-</div>
+</section>
 
+<!--<div class="container p-12">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-12 mx-auto principal d-flex justify-content-center">-->
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <form action="/empleado/add_empleado" method="post">-->
+<!--                        <label for="">Id</label>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="text" class="form-control" name="id" placeholder="0000-0000-00000" autofocus required>-->
+<!--                        </div>-->
+<!--                        <label for="">Nombre</label>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>-->
+<!--                        </div>-->
+<!--                        <label for="">Apellido</label>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>-->
+<!--                        </div>-->
+<!--                        <label for="">Telefono</label>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="text" class="form-control" name="telefono" placeholder="Telefono" required>-->
+<!--                        </div>-->
+<!--                        <label for="">Correo</label>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="email" class="form-control" name="correo" placeholder="Correo" required>-->
+<!--                        </div>-->
+<!--                        <label for="">Cargo</label>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="text" class="form-control" name="cargo" placeholder="Cargo" required>-->
+<!--                        </div>-->
+<!--                        <label for=""></label>-->
+<!--                        <div class="form-group d-flex justify-content-center">-->
+<!--                            <label>-->
+<!--                                <button class="btn btn-success">Guardar</button>-->
+<!--                                <a href="/empleado" class="btn btn-success">Cancelar</a>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

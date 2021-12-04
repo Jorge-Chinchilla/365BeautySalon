@@ -4,43 +4,23 @@
     <div class="card bg-light">
         <div class="card-body">
             <h2 class="card-title">¿Desea eliminar este producto?</h2>
-            <form action="/producto/del_producto/{{_id}}" method="post">
                 <input type="hidden" name="_id" value="{{_id}}">
-                <h3>{{nombre}} </h3>
-                <h5>ID: {{id}}</h5>
-                <div class="text-right">
-                    <a href="/info_servicio"><input type="button" value="Cancelar" class="btn btn-outline-dark"></a>
+                <h3>Nomre: {{nombre}} </h3>
+                <h4>Categoria: {{categoria}} </h4>
+                <h4>Disponibilidad: {{cantidad}} </h4>
+                <h4>Precio: {{precio_venta}} </h4>
+            <div class="row">
+                <form action="/producto/del_producto/{{_id}}" method="post">
                     <button class="btn btn-outline-danger">Eliminar</button>
-                </div>
-            </form>
-            <form action="/info_producto" method="post" class="d-flex justify-content-center">
-                <input type="text" name="id" id="id" value={{id}} hidden required>
-                <button type="submit" class="btn btn-outline-danger">Cancelar</button>
-            </form>
+                </form>
+                <form action="/info_producto" method="post" class="d-flex justify-content-center">
+                    <input type="text" name="id" id="id" value={{_id}} hidden required>
+                    <button type="submit" class="btn btn-outline-primary">Cancelar</button>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
 
 {{/each}}
-
-<!--Version Vieja-->
-
-<!--<div class="col-md-12 principal d-flex justify-content-center">-->
-<!--    <div class="card d-flex justify-content-center">-->
-<!--        <div class="row">-->
-<!--            <labeltitulo class="titulo"><h2>¿Desea eliminar este producto?</h2></labeltitulo>-->
-<!--        </div>-->
-<!--        <div class="card-body">-->
-<!--            <form action="/producto/del_producto/{{_id}}" method="post">-->
-<!--                <input type="hidden" name="_id" value="{{_id}}">-->
-
-<!--                <h3>{{nombre}} </h3>-->
-<!--                <h5>ID: {{id}}</h5>-->
-
-
-<!--                <a href="/producto/info_producto/{{id}}"><input type="button" value="Cancelar" class="btn btn-outline-dark"></a>-->
-<!--                <button class="btn btn-outline-danger">Eliminar</button>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->

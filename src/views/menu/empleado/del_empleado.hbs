@@ -4,18 +4,22 @@
     <div class="card bg-light">
         <div class="card-body">
             <h2 class="card-title">¿Desea eliminar el empleado de la plantilla?</h2>
-            <form action="/empleado/del_empleado/{{_id}}" method="post">
+
                 <input type="hidden" name="_id" value="{{_id}}">
-                <h3>{{nombre}}</h3>
+                <h3>{{nombre}} {{apellido}}</h3>
                 <h5>{{id}}</h5>
-                <div class="text-right">
-                    <button class="btn btn-outline-danger">Eliminar</button>
-                </div>
-            </form>
-            <form action="/info_empleado" method="post" class="d-flex justify-content-center">
-                <input type="text" name="id" id="id" value={{id}} hidden required>
-                <button type="submit" class="btn btn-outline-danger">Cancelar</button>
-            </form>
+                <h5>{{cargo}}</h5>
+            <div class="row">
+                <form action="/empleado/del_empleado/{{_id}}" method="post">
+                    <div class="text-right">
+                        <button class="btn btn-outline-danger">Eliminar</button>
+                    </div>
+                </form>
+                <form action="/info_empleado" method="post" class="d-flex justify-content-center">
+                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                    <button type="submit" class="btn btn-outline-primary">Cancelar</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

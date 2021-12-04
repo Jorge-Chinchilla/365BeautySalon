@@ -34,13 +34,18 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Numero</th>
                             <th scope="col">Servicio</th>
-                            <th scope="col">Dia</th>
+                            <th scope="col">Fecha de la Cita</th>
                         </tr>
                         </thead>
                         <tbody>
                         {{#each cita}}
                         <tr>
-                            <td><a href="/info_cita/{{_id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
+                            <td>
+                                <form action="/info_cita" method="post">
+                                    <input type="text" name="id" id="id" value={{_id}} hidden required>
+                                    <input class="btn btn-outline-secondary" type="submit" value="ver">
+                                </form>
+                            </td>
                             <td>{{nombre}}</td>
                             <td>{{numero}}</td>
                             <td>{{servicio}}</td>

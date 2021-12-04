@@ -24,7 +24,7 @@
                     <input type="text" class="form-control" name="numero" id="numero" required>
                 </div>
                 <div class="mb-2">
-                    <select name="servicio" id="servicio" class="form-select" aria-label="Default select example">
+                    <select name="servicio" id="servicio" class="form-control" aria-label="Default select example">
                         <option selected>Servicios</option>
                         {{#each servicio}}
                             <option value="{{nombre}}">{{nombre}}</option>
@@ -33,13 +33,12 @@
                 </div>
                 <div class="mb-2">
                     <label for="fecha_cita">Fecha</label>
-                    <input type="datetime-local" id="fecha_cita" name="fecha_cita" value="2021-12-01T14:00" min="2021-12-01T00:00">
+                    <input type="datetime-local" class="form-control" id="fecha_cita" name="fecha_cita" value="2021-12-01T14:00" min="2021-12-01T00:00">
                 </div>
                 <div class="mb-2 text-center">
                     <button class="btn btn-success">Guardar</button>
                     <a class="btn btn btn-danger" href="/cita">Cancelar</a>
                 </div>
-
             </form>
         </div>
     </div>

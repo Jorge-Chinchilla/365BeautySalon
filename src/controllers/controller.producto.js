@@ -18,7 +18,16 @@ const getCreateProducto = (req, res) => {
 
 const getInfoProducto = async (req, res) => {
     const data = req.body
-    const infoProducto = await Productos.find({ id: data.id }).lean();
+    const infoProducto = await Productos.find({ _id: data.id }).lean();
+    infoProducto.forEach(producto => {
+
+        if (producto.fecha.getMinutes() < 10){
+            producto.fecha = producto.fecha.toDateString() + " " + producto.fecha.getHours()+":"+producto.fecha.getMinutes()+"0";
+
+        }else{
+            producto.fecha = producto.fecha.toDateString() + " " + producto.fecha.getHours()+":"+producto.fecha.getMinutes();
+        }
+    });
     res.render('menu/producto/info_producto', {
         infoProducto,
         title:'Información Producto',
@@ -29,7 +38,7 @@ const getInfoProducto = async (req, res) => {
 const getEditProducto = async (req, res) => {
     const data = req.body;
     console.log(data);
-    const editProducto = await Productos.find({ id: data.id }).lean();
+    const editProducto = await Productos.find({ _id: data.id }).lean();
     res.render('menu/producto/edit_producto', {
         editProducto,
         title:'Editar Producto',
@@ -39,7 +48,7 @@ const getEditProducto = async (req, res) => {
 
 const getDeleteProducto = async (req, res) => {
     const data = req.body;
-    const delProducto = await Productos.find({ id: data.id }).lean();
+    const delProducto = await Productos.find({ _id: data.id }).lean();
     console.log(delProducto);
     res.render('menu/producto/del_producto', {
         delProducto,
@@ -51,7 +60,6 @@ const getDeleteProducto = async (req, res) => {
 const createProducto = async (req, res) => {
     const data = req.body;
     const newProducto = new Productos({
-        id: data.id,
         nombre: data.nombre,
         cantidad: data.cantidad,
         precio_compra: data.precio_compra,
@@ -63,8 +71,8 @@ const createProducto = async (req, res) => {
 }
 
 const updateProducto = async (req, res) => {
-    const { id, nombre, cantidad, precio_compra, precio_venta, categoria } = req.body;
-    await Productos.findByIdAndUpdate(req.params.id, { id, nombre, cantidad, precio_compra, precio_venta, categoria }).lean();
+    const { nombre, cantidad, precio_compra, precio_venta, categoria } = req.body;
+    await Productos.findByIdAndUpdate(req.params.id, { nombre, cantidad, precio_compra, precio_venta, categoria }).lean();
     res.redirect('/producto')
 }
 
