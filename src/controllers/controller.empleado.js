@@ -17,21 +17,34 @@ const getCreateEmpleado = (req, res) => {
 }
 
 const getInfoEmpleado = async (req, res) => {
-    const param = req.params.id;
-    const infoEmpleado = await Empleados.find({ id: param }).lean();
-    res.render('menu/empleado/info_empleado', { infoEmpleado });
+    const data = req.body;
+    const infoEmpleado = await Empleados.find({ id: data.id }).lean();
+    res.render('menu/empleado/info_empleado', {
+        infoEmpleado,
+        title: 'Informacion Empleado',
+        style: 'add_servicio.css'
+    });
 };
 
 const getEditEmpleado = async (req, res) => {
-    const param = req.params.id;
-    const editEmpleado = await Empleados.find({ id: param }).lean();
-    res.render('menu/empleado/edit_empleado', { editEmpleado });
+    const data = req.body;
+    const editEmpleado = await Empleados.find({ id: data.id  }).lean();
+    res.render('menu/empleado/edit_empleado', {
+        editEmpleado,
+        title: 'Editar Empleado',
+        style: 'add_servicio.css'
+    });
 };
 
 const getDeleteEmpleado = async (req, res) => {
     const param = req.params.id;
-    const delEmpleado = await Empleados.find({ id: param }).lean();
-    res.render('menu/empleado/del_empleado', { delEmpleado });
+    const data = req.body;
+    const delEmpleado = await Empleados.find({ id: data.id  }).lean();
+    res.render('menu/empleado/del_empleado', {
+        delEmpleado,
+        title: 'Eliminar Empleado',
+        style: 'add_servicio.css'
+    });
 }
 
 const createEmpleado = async (req, res) => {

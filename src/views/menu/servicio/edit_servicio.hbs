@@ -22,8 +22,11 @@
                 </div>
                 <div class="mb-2 text-center">
                     <button class="btn btn-outline-primary">Actualizar</button>
-                    <a class="btn btn-outline-danger" href="/servicio/info_servicio/{{id}}">Cancelar</a>
                 </div>
+            </form>
+            <form action="/info_servivio" method="post" class="d-flex justify-content-center">
+                <input type="text" name="id" id="id" value={{id}} hidden required>
+                <button type="submit" class="btn btn-outline-danger">Cancelar</button>
             </form>
         </div>
     </div>

@@ -11,8 +11,14 @@
             <h4>Correo: {{correo}}</h4>
             <h4>Registro: {{fecha}}</h4>
             <div class="text-right">
-                <a href="/empleado/edit_empleado/{{id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
-                <a href="/empleado/del_empleado/{{id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
+                <form action="/edit_empleado" method="post">
+                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                    <button type="submit" class="btn btn-outline-primary">Editar</button>
+                </form>
+                <form action="/del_empleado" method="post">
+                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                </form>
             </div>
         </div>
     </div>

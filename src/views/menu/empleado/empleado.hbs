@@ -45,7 +45,11 @@
                                 <td>{{nombre}}</td>
                                 <td>{{apellido}}</td>
                                 <td>{{cargo}}</td>
-                                <td><a href="/empleado/info_empleado/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a>
+                                <td>
+                                    <form action="/info_empleado" method="post">
+                                        <input type="text" name="id" id="id" value={{id}} hidden required>
+                                        <input class="btn btn-outline-secondary" type="submit" value="ver">
+                                    </form>
                                 </td>
                             </tr>
                         {{/each}}

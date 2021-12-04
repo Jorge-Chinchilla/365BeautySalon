@@ -9,9 +9,12 @@
                 <h3>{{nombre}}</h3>
                 <h5>{{id}}</h5>
                 <div class="text-right">
-                    <a href="/empleado/info_empleado/{{id}}"><input type="button" value="Cancelar" class="btn btn-outline-dark"></a>
                     <button class="btn btn-outline-danger">Eliminar</button>
                 </div>
+            </form>
+            <form action="/info_empleado" method="post" class="d-flex justify-content-center">
+                <input type="text" name="id" id="id" value={{id}} hidden required>
+                <button type="submit" class="btn btn-outline-danger">Cancelar</button>
             </form>
         </div>
     </div>

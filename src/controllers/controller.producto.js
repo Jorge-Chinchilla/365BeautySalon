@@ -12,26 +12,40 @@ const getProductos = async (req, res) => {
 const getCreateProducto = (req, res) => {
     res.render('menu/producto/add_producto', {
         title:'Agregar Producto',
-        style:'add_producto.css'
+        style:'add_servicio.css'
     });
 }
 
 const getInfoProducto = async (req, res) => {
-    const param = req.params.id;
-    const infoProducto = await Productos.find({ id: param }).lean();
-    res.render('menu/producto/info_producto', { infoProducto });
+    const data = req.body
+    const infoProducto = await Productos.find({ id: data.id }).lean();
+    res.render('menu/producto/info_producto', {
+        infoProducto,
+        title:'Información Producto',
+        style:'add_servicio.css'
+    });
 };
 
 const getEditProducto = async (req, res) => {
-    const param = req.params.id;
-    const editProducto = await Productos.find({ id: param }).lean();
-    res.render('menu/producto/edit_producto', { editProducto });
+    const data = req.body;
+    console.log(data);
+    const editProducto = await Productos.find({ id: data.id }).lean();
+    res.render('menu/producto/edit_producto', {
+        editProducto,
+        title:'Editar Producto',
+        style:'add_servicio.css'
+    });
 };
 
 const getDeleteProducto = async (req, res) => {
-    const param = req.params.id;
-    const delProducto = await Productos.find({ id: param }).lean();
-    res.render('menu/producto/del_producto', { delProducto });
+    const data = req.body;
+    const delProducto = await Productos.find({ id: data.id }).lean();
+    console.log(delProducto);
+    res.render('menu/producto/del_producto', {
+        delProducto,
+        title:'Eliminar Producto',
+        style:'add_servicio.css'
+    });
 }
 
 const createProducto = async (req, res) => {
@@ -60,6 +74,38 @@ const deleteProducto = async (req, res)=>{
     res.redirect('/producto');
 }
 
+const filtrarProducto = async (req, res) => {
+    const data = req.body.nombre
+    console.log(data)
+    productos = await Productos.find({ "nombre": { $regex: new RegExp(data)}}).lean();
+
+    if(productos.length<1){
+        const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
+        productos = await Productos.find({ "nombre": { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(productos.length<1){
+            const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
+            productos = await Productos.find({ "nombre": { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(productos.length<1){
+                const dataUpper = data.toUpperCase();
+                productos = await Productos.find({ "nombre": { $regex: new RegExp(dataUpper)}}).lean();
+                if(productos.length<1){
+                    const dataLower = data.toLowerCase();
+                    productos = await Productos.find({ "nombre": { $regex: new RegExp(dataLower)}}).lean();
+                    if(productos.length<1){
+                        const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
+                        productos = await Productos.find({ "nombre": { $regex: new RegExp(dataUpperLower)}}).lean();
+                    }
+                }
+            }
+        }
+    }
+    res.render('menu/producto/producto', {
+        productos,
+        title:"Productos",
+        style:"producto.css"
+    });
+}
+
 module.exports = {
     getProductos,
     getCreateProducto,
@@ -69,4 +115,5 @@ module.exports = {
     createProducto,
     updateProducto,
     deleteProducto,
+    filtrarProducto
 }

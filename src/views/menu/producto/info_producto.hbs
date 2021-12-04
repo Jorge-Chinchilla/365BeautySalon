@@ -11,8 +11,14 @@
             <h4>Precio de Compra: {{precio_compra}}Lps</h4>
             <h4>Registro: {{fecha}}</h4>
             <div class="text-right">
-                <a href="/producto/edit_producto/{{id}}"><button type="button" class="btn btn-outline-primary">Editar</button></a>
-                <a href="/producto/del_producto/{{id}}"><button type="button" class="btn btn-outline-danger">Eliminar</button></a>
+                <form action="/edit_producto" method="post">
+                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                    <button type="submit" class="btn btn-outline-danger">Editar</button>
+                </form>
+                <form action="/del_producto" method="post">
+                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                </form>
             </div>
         </div>
     </div>
