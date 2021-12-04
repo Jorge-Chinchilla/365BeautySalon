@@ -12,16 +12,28 @@
         <div class="mb-2">
             <form action="/cita/add_cita" method="post">
                 <div class="mb-2">
-                    <label for="id">Id del Servicio</label>
+                    <label for="id">Id de la Cita</label>
                     <input type="text" class="form-control" name="id" id="id" required>
                 </div>
                 <div class="mb-2">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre">Nombre del Cliente</label>
                     <input type="text" class="form-control" name="nombre" id="nombre" required>
                 </div>
                 <div class="mb-2">
-                    <label for="precio">Precio</label>
-                    <input type="number" class="form-control" name="precio" id="precio" required>
+                    <label for="correo">Correo</label>
+                    <input type="email" class="form-control" name="correo" id="correo" required>
+                </div>
+                <div class="mb-2">
+                    <label for="numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="numero" required>
+                </div>
+                <div class="mb-2">
+                    <select name="servicio" id="servicio" class="form-select" aria-label="Default select example">
+                        <option selected>Servicios</option>
+                        {{#each servicio}}
+                            <option value="{{nombre}}">{{nombre}}</option>
+                        {{/each}}
+                    </select>
                 </div>
                 <div class="mb-2 text-center">
                     <button class="btn btn-success">Guardar</button>

@@ -6,7 +6,7 @@
             <div class="">
                 <div class="row">
                     <div class="col-lg-6 d-flex justify-content-center">
-                        <label class="label">Servicios </label>
+                        <label class="label">Historial de Citas </label>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center">
                         <form class="form-inline">
@@ -33,16 +33,18 @@
                             <th scope="col"></th>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Precio</th>
+                            <th scope="col">Numero</th>
+                            <th scope="col">Servicio</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {{#each servicio}}
+                        {{#each cita}}
                         <tr>
-                            <td><a href="/info_servicio/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
+                            <td><a href="/info_cita/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
                             <td>{{id}}</td>
                             <td>{{nombre}}</td>
-                            <td>{{precio}} Lps</td>
+                            <td>{{numero}}</td>
+                            <td>{{servicio}}</td>
                         </tr>
                         {{/each}}
                         </tbody>
