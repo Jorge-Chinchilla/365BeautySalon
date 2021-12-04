@@ -3,6 +3,15 @@ const Servicio = require('../models/servicios')
 
 const getCita = async (req, res) => {
     const cita = await Cita.find().lean();
+    cita.forEach(citas => {
+
+        citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
+        console.log(citas);
+
+    });
+    // fecha = cita.fecha_cita;
+    // fecha = fecha.getMonth();
+    // console.log(fecha)
     res.render('menu/Citas/cita', {
         cita,
         title:"login",
