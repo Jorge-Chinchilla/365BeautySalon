@@ -39,7 +39,13 @@
                         <tbody>
                         {{#each servicio}}
                         <tr>
-                            <td><a href="/servicio/info_servicio/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
+                            <td>
+                                <form action="/info_servicio" method="post">
+                                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                                    <input class="btn btn-outline-secondary" type="submit" value="ver">
+                                </form>
+                            </td>
+
                             <td>{{id}}</td>
                             <td>{{nombre}}</td>
                             <td>{{precio}} Lps</td>

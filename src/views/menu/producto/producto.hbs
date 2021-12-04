@@ -41,7 +41,12 @@
                         <tbody>
                         {{#each productos}}
                         <tr>
-                            <td><a href="/producto/info_producto/{{id}}"><input class="btn btn-outline-secondary" type="button" value="ver"></a></td>
+                            <td>
+                                <form action="/info_producto" method="post">
+                                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                                    <input class="btn btn-outline-secondary" type="submit" value="ver">
+                                </form>
+                            </td>
                             <td>{{nombre}}</td>
                             <td>{{categoria}}</td>
                             <td>{{cantidad}}</td>

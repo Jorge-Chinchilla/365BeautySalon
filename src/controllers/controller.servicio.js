@@ -17,8 +17,9 @@ const getCreateServicio = (req, res) => {
 }
 
 const getInfoServicio = async (req, res) => {
-    const param = req.params.id;
-    const infoServicio = await Servicio.find({ id: param }).lean();
+    const data = req.body;
+    console.log(data.id);
+    const infoServicio = await Servicio.find({ id: data.id }).lean();
     res.render('menu/servicio/info_servicio', {
         infoServicio,
         title:'Agregar Servicio',
