@@ -49,6 +49,7 @@ const createCita = async (req, res) => {
         correo: data.correo,
         numero: data.numero,
         servicio: data.servicio,
+        fecha_cita: data.fecha_cita,
         fecha: data.fecha,
     });
     await newCita.save();

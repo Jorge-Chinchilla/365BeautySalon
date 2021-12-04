@@ -35,10 +35,15 @@
                         {{/each}}
                     </select>
                 </div>
+                <div class="mb-2">
+                    <label for="fecha_cita">Fecha</label>
+                    <input type="datetime-local" id="fecha_cita" name="fecha_cita" value="2021-12-01T14:00" min="2021-12-01T00:00">
+                </div>
                 <div class="mb-2 text-center">
                     <button class="btn btn-success">Guardar</button>
                     <a class="btn btn btn-danger" href="/cita">Cancelar</a>
                 </div>
+
             </form>
         </div>
     </div>
