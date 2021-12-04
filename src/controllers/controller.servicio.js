@@ -34,6 +34,7 @@ const getEditServicio = async (req, res) => {
 };
 
 const getDeleteServicio = async (req, res) => {
+
     const param = req.params.id;
     const delServicio = await Servicio.find({ id: param }).lean();
     res.render('menu/servicio/del_servicio', { delServicio });
