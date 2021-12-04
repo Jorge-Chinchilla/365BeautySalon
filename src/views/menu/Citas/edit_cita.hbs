@@ -1,0 +1,31 @@
+{{> navigation }}
+{{#each editServicio}}
+
+<section class="d-flex justify-content-center">
+    <div class="card col-sm-3 p-3">
+        <div class="mb-3 text-center">
+            <h2>Servicio de {{nombre}}</h2>
+        </div>
+        <div class="mb-2">
+            <form action="/servicio/edit_servicio/{{_id}}" method="post">
+                <div class="mb-2">
+                    <label for="id">Id del Servicio</label>
+                    <input type="text" class="form-control" name="id" id="id" value="{{id}}" required>
+                </div>
+                <div class="mb-2">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" required>
+                </div>
+                <div class="mb-2">
+                    <label for="precio">Precio</label>
+                    <input type="number" class="form-control" name="precio" id="precio" value="{{precio}}" required>
+                </div>
+                <div class="mb-2 text-center">
+                    <button class="btn btn-outline-primary">Actualizar</button>
+                    <a class="btn btn-outline-danger" href="/servicio/info_servicio/{{id}}">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{{/each}}

@@ -19,7 +19,11 @@ const getCreateServicio = (req, res) => {
 const getInfoServicio = async (req, res) => {
     const param = req.params.id;
     const infoServicio = await Servicio.find({ id: param }).lean();
-    res.render('menu/servicio/info_servicio', { infoServicio });
+    res.render('menu/servicio/info_servicio', {
+        infoServicio,
+        title:'Agregar Servicio',
+        style:'add_servicio.css'
+    });
 };
 
 const getEditServicio = async (req, res) => {
