@@ -31,7 +31,7 @@ const getInfoProducto = async (req, res) => {
     res.render('menu/producto/info_producto', {
         infoProducto,
         title:'Información Producto',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 };
 
@@ -53,7 +53,7 @@ const getDeleteProducto = async (req, res) => {
     res.render('menu/producto/del_producto', {
         delProducto,
         title:'Eliminar Producto',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 }
 

@@ -18,18 +18,18 @@ const getCreateServicio = (req, res) => {
 
 const getInfoServicio = async (req, res) => {
     const data = req.body;
-    const infoServicio = await Servicio.find({ id: data.id }).lean();
+    const infoServicio = await Servicio.find({ _id: data.id }).lean();
     res.render('menu/servicio/info_servicio', {
         infoServicio,
         title:'Agregar Servicio',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 };
 
 const getEditServicio = async (req, res) => {
     const data = req.body;
     console.log(data.id)
-    const editServicio = await Servicio.find({ id: data.id }).lean();
+    const editServicio = await Servicio.find({ _id: data.id }).lean();
     res.render('menu/servicio/edit_servicio', {
         editServicio,
         title:'editar Servicio',
@@ -39,7 +39,7 @@ const getEditServicio = async (req, res) => {
 
 const getDeleteServicio = async (req, res) => {
     const data = req.body;
-    const delServicio = await Servicio.find({ id: data.id }).lean();
+    const delServicio = await Servicio.find({ _id: data.id }).lean();
     res.render('menu/servicio/del_servicio', {
         delServicio,
         title:'Eliminar servicio',

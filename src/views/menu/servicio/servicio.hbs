@@ -31,7 +31,6 @@
                         <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Precio</th>
                         </tr>
@@ -41,11 +40,10 @@
                         <tr>
                             <td>
                                 <form action="/info_servicio" method="post">
-                                    <input type="text" name="id" id="id" value={{id}} hidden required>
+                                    <input type="text" name="id" id="id" value={{_id}} hidden required>
                                     <input class="btn btn-outline-secondary" type="submit" value="ver">
                                 </form>
                             </td>
-                            <td>{{id}}</td>
                             <td>{{nombre}}</td>
                             <td>{{precio}} Lps</td>
                         </tr>

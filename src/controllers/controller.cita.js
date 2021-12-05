@@ -14,7 +14,7 @@ const getCita = async (req, res) => {
     });
     res.render('menu/Citas/cita', {
         cita,
-        title:"login",
+        title:"Citas",
         style:"producto.css"
     });
 }
@@ -48,8 +48,8 @@ const getInfoCita = async (req, res) => {
     });
     res.render('menu/Citas/info_cita', {
         infoCita,
-        title:'Agregar Cita',
-        style:'add_servicio.css'
+        title:'Informacion de Cita',
+        style:'info.css'
     });
 };
 
@@ -60,7 +60,7 @@ const getEditCita = async (req, res) => {
     res.render('menu/Citas/edit_cita', {
         editCita,
         servicio,
-        title:'Agregar Cita',
+        title:'Editar Cita',
         style:'add_servicio.css'
     });
 };

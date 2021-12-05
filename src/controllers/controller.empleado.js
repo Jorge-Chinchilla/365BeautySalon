@@ -22,7 +22,7 @@ const getInfoEmpleado = async (req, res) => {
     res.render('menu/empleado/info_empleado', {
         infoEmpleado,
         title: 'Informacion Empleado',
-        style: 'add_servicio.css'
+        style: 'info.css'
     });
 };
 

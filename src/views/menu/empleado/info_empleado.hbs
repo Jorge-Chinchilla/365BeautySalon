@@ -1,47 +1,63 @@
 {{> navigation }}
 {{#each infoEmpleado}}
-
-<div class="container col-md-12 principal d-flex justify-content-center">
-    <div class="card bg-light">
-        <div class="card-body">
-            <h2 class="card-title">{{nombre}} {{apellido}}</h2>
-            <h4>{{cargo}}</h4>
-            <h4>ID: {{id}}</h4>
-            <h4>Telefono: {{telefono}}</h4>
-            <h4>Correo: {{correo}}</h4>
-            <h4>Registro: {{fecha}}</h4>
-            <div class="row">
-                <form action="/edit_empleado" method="post">
-                    <input type="text" name="id" id="id" value={{id}} hidden required>
-                    <button type="submit" class="btn btn-outline-primary">Editar</button>
-                </form>
-                <form action="/del_empleado" method="post">
-                    <input type="text" name="id" id="id" value={{id}} hidden required>
-                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-                </form>
+    <div class="container col-md-10 principal d-flex justify-content-center">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <h2 class="card-title">{{nombre}} {{apellido}}</h2>
+                    <hr class="regla">
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Telefono:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{telefono}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Cargo:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{cargo}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">ID:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{id}}Lps" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Correo:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{correo}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Registro:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{fecha}}" readonly>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <form action="/edit_empleado" method="post">
+                        <input type="text" name="id" id="id" value={{id}} hidden required>
+                        <button type="submit" class="btn btn-outline-primary">Editar</button>
+                    </form>
+                    <form action="/del_empleado" method="post">
+                        <input type="text" name="id" id="id" value={{id}} hidden required>
+                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-<!--Version vieja-->
-<!--<label>ID: <br> {{id}}</label>-->
-<!--<br>-->
-<!--<label>NOMBRE: <br> {{nombre}}</label>-->
-<!--<br>-->
-<!--<label>APELLIDO: <br> {{apellido}}</label>-->
-<!--<br>-->
-<!--<label>TELEFONO: <br> {{telefono}}</label>-->
-<!--<br>-->
-<!--<label>CORREO: <br> {{correo}}</label>-->
-<!--<br>-->
-<!--<label>CARGO: <br> {{cargo}}</label>-->
-<!--<br>-->
-<!--<label>FECHA DE REGISTRO: <br> {{fecha}}</label>-->
-
-<!--<a href="../"><input type="button" value="Atras"></a>-->
-<!--<a href="/menu/empleado/edit_empleado/{{_id}}"><input type="button" value="Editar"></a>-->
-<!--<a href="/menu/empleado/del_empleado/{{_id}}"><input type="button" value="Eliminar"></a>-->
-
 {{/each}}
