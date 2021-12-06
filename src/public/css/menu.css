@@ -88,3 +88,49 @@ Navigation bar
 /*
 Navigation bar Ending
 */
+
+.container{
+    margin-top: 3%;
+    padding: 2%;
+    background-color: #FF8296;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23df667b' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+}
+
+.titulo{
+    font-weight: bold;
+    display: inline;
+    color: white;
+}
+
+.columna{
+    padding: 2%;
+}
+
+.circle{
+    padding: 5%;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fas{
+    color: gray;
+}
+
+.item:hover .letras {
+    color: #FF8296;
+}
+
+.item:hover .fas {
+    color: #FF8296;
+}
+
+.letras{
+    color: gray;
+    font-weight: bold;
+}

@@ -12,7 +12,7 @@ const getEmpleado = async (req, res) => {
 const getCreateEmpleado = (req, res) => {
     res.render('menu/empleado/add_empleado', {
         title: 'Agregar',
-        style: 'add_producto.css'
+        style: 'info.css'
     });
 }
 
@@ -32,7 +32,7 @@ const getEditEmpleado = async (req, res) => {
     res.render('menu/empleado/edit_empleado', {
         editEmpleado,
         title: 'Editar Empleado',
-        style: 'add_servicio.css'
+        style: 'info.css'
     });
 };
 
@@ -43,7 +43,7 @@ const getDeleteEmpleado = async (req, res) => {
     res.render('menu/empleado/del_empleado', {
         delEmpleado,
         title: 'Eliminar Empleado',
-        style: 'add_servicio.css'
+        style: 'info.css'
     });
 }
 

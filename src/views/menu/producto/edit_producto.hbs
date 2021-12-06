@@ -1,34 +1,57 @@
 {{> navigation }}
+
 {{#each editProducto}}
 
-    <section class="d-flex justify-content-center">
-        <div class="card col-sm-3 p-3">
-            <div class="mb-3 text-center">
-                <h2>Producto {{nombre}}</h2>
-            </div>
-            <div class="mb-2">
+
+    <div class="container col-md-10 principal d-flex justify-content-center">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <h2 class="card-title">Editar {{nombre}}</h2>
+                    <hr class="regla">
+                </div>
                 <form action="/producto/edit_producto/{{_id}}" method="post">
-                    <div class="mb-2">
-                        <label for="id">Nombre de Producto</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" required>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Nombre:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="text" value="{{nombre}}" class="value" name="nombre" id="nombre" required>
+                        </div>
                     </div>
-                    <div class="mb-2">
-                        <label for="nombre">Cantidad</label>
-                        <input type="number" class="form-control" name="cantidad" id="cantidad" value="{{cantidad}}" required>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Cantidad:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="text" value="{{cantidad}}" class="value" name="cantidad" id="cantidad" required>
+                        </div>
                     </div>
-                    <div class="mb-2">
-                        <label for="precio">Precio de Compra</label>
-                        <input type="number" class="form-control" name="precio_compra" id="precio_compra" value="{{precio_compra}}" required>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Compra:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="text" value="{{precio_compra}}" class="value" name="precio_compra" id="precio_compra" required>
+                        </div>
                     </div>
-                    <div class="mb-2">
-                        <label for="precio">Precio de venta</label>
-                        <input type="number" class="form-control" name="precio_venta" id="precio_venta" value="{{precio_venta}}" required>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Venta:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="text" value="{{precio_venta}}" class="value" name="precio_venta" id="precio_venta" required>
+                        </div>
                     </div>
-                    <div class="mb-2">
-                        <label for="precio">Categoria</label>
-                        <input type="text" class="form-control" name="categoria" id="categoria" value="{{categoria}}" required>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Categoria:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="text" value="{{categoria}}" class="value" name="categoria" id="categoria" required>
+                        </div>
                     </div>
-                    <div class="mb-2 text-center">
+                    <div class="row buttons d-flex justify-content-around">
                         <button class="btn btn-outline-primary">Actualizar</button>
                     </div>
                 </form>
@@ -38,8 +61,6 @@
                 </form>
             </div>
         </div>
-    </section>
+    </div>
+
 {{/each}}
-
-
-{

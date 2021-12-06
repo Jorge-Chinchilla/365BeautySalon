@@ -1,33 +1,35 @@
 {{> navigation }}
 
-
-<br>
-<br>
-<br>
-<section class="mb-3 d-flex justify-content-center">
-    <div class="card col-sm-3 p-10">
-        <div class="mb-3 text-center">
-            <h3>Agregar Servicio</h3>
-        </div>
-        <div class="mb-2">
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Agregar Servicio</h2>
+                <hr class="regla">
+            </div>
             <form action="/servicio/add_servicio" method="post">
-                <div class="mb-2">
-                    <label for="id">Id del Servicio</label>
-                    <input type="text" class="form-control" name="id" id="id" required>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Nombre:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="nombre" id="nombre" required>
+                    </div>
                 </div>
-                <div class="mb-2">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" required>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Precio:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="precio" id="precio" required>
+                    </div>
                 </div>
-                <div class="mb-2">
-                    <label for="precio">Precio</label>
-                    <input type="number" class="form-control" name="precio" id="precio" required>
-                </div>
-                <div class="mb-2 text-center">
+                <div class="row buttons d-flex justify-content-around">
                     <button class="btn btn-outline-primary">Guardar</button>
-                    <a class="btn btn btn-danger" href="/servicio">Cancelar</a>
+                    <a class="btn btn btn-outline-danger" href="/servicio">Cancelar</a>
                 </div>
             </form>
         </div>
     </div>
-</section>
+</div>
+

@@ -12,7 +12,7 @@ const getServicio = async (req, res) => {
 const getCreateServicio = (req, res) => {
     res.render('menu/servicio/add_servicio', {
         title:'Agregar Servicio',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 }
 
@@ -33,7 +33,7 @@ const getEditServicio = async (req, res) => {
     res.render('menu/servicio/edit_servicio', {
         editServicio,
         title:'editar Servicio',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 };
 
@@ -43,7 +43,7 @@ const getDeleteServicio = async (req, res) => {
     res.render('menu/servicio/del_servicio', {
         delServicio,
         title:'Eliminar servicio',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 }
 
@@ -59,8 +59,8 @@ const createServicio = async (req, res) => {
 }
 
 const updateServicio = async (req, res) => {
-    const { id, nombre, cantidad, precio_compra, precio_venta, categoria } = req.body;
-    await Servicio.findByIdAndUpdate(req.params.id, { id, nombre, cantidad, precio_compra, precio_venta, categoria }).lean();
+    const { nombre, precio} = req.body;
+    await Servicio.findByIdAndUpdate(req.params.id, { nombre, precio}).lean();
     res.redirect('/servicio')
 }
 

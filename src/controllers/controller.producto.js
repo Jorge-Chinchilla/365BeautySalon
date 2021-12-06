@@ -12,7 +12,7 @@ const getProductos = async (req, res) => {
 const getCreateProducto = (req, res) => {
     res.render('menu/producto/add_producto', {
         title:'Agregar Producto',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 }
 
@@ -42,7 +42,7 @@ const getEditProducto = async (req, res) => {
     res.render('menu/producto/edit_producto', {
         editProducto,
         title:'Editar Producto',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 };
 
