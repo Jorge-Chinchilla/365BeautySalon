@@ -72,24 +72,25 @@ const deleteServicio = async (req, res)=>{
 
 const filtrarServicio = async (req, res) => {
     const data = req.body.nombre
-    productos = await Servicio.find({ "nombre": { $regex: new RegExp(data)}}).lean();
-    console.log(productos.length)
-    if(productos.length<1){
+    console.log(data)
+    servicio = await Servicio.find({ nombre: { $regex: new RegExp(data)}}).lean();
+    console.log(servicio.length)
+    if(servicio.length<1){
         const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
         console.log(dataUpperFirst)
-        productos = await Servicio.find({ "nombre": { $regex: new RegExp(dataUpperFirst)}}).lean();
-        if(productos.length<1){
+        servicio = await Servicio.find({ nombre: { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(servicio.length<1){
             const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
-            productos = await Servicio.find({ "nombre": { $regex: new RegExp(dataLowerFirst)}}).lean();
-            if(productos.length<1){
+            servicio = await Servicio.find({ nombre: { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(servicio.length<1){
                 const dataUpper = data.toUpperCase();
-                productos = await Servicio.find({ "nombre": { $regex: new RegExp(dataUpper)}}).lean();
-                if(productos.length<1){
+                servicio = await Servicio.find({ nombre: { $regex: new RegExp(dataUpper)}}).lean();
+                if(servicio.length<1){
                     const dataLower = data.toLowerCase();
-                    productos = await Servicio.find({ "nombre": { $regex: new RegExp(dataLower)}}).lean();
-                    if(productos.length<1){
+                    servicio = await Servicio.find({ nombre: { $regex: new RegExp(dataLower)}}).lean();
+                    if(servicio.length<1){
                         const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
-                        productos = await Servicio.find({ "nombre": { $regex: new RegExp(dataUpperLower)}}).lean();
+                        servicio = await Servicio.find({ nombre: { $regex: new RegExp(dataUpperLower)}}).lean();
                         console.log(dataUpperFirst)
                     }
                 }
@@ -97,8 +98,8 @@ const filtrarServicio = async (req, res) => {
         }
     }
     res.render('menu/servicio/servicio', {
-        productos,
-        title:"Productos",
+        servicio,
+        title:"Servicio",
         style:"producto.css"
     });
 }
