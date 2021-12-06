@@ -1,5 +1,6 @@
 const Cita = require('../models/citas')
 const Servicio = require('../models/servicios')
+const Productos = require("../models/productos");
 
 const getCita = async (req, res) => {
     const cita = await Cita.find().lean();
@@ -140,6 +141,46 @@ const deleteCita = async (req, res)=>{
     res.redirect('/cita');
 }
 
+const filtrarCitas = async (req, res) => {
+    const data = req.body.nombre
+    console.log(data)
+    cita = await Cita.find({ "nombre": { $regex: new RegExp(data)}}).lean();
+
+    if(cita.length<1){
+        const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
+        cita = await Cita.find({ "nombre": { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(cita.length<1){
+            const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
+            cita = await Cita.find({ "nombre": { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(cita.length<1){
+                const dataUpper = data.toUpperCase();
+                cita = await Cita.find({ "nombre": { $regex: new RegExp(dataUpper)}}).lean();
+                if(cita.length<1){
+                    const dataLower = data.toLowerCase();
+                    cita = await Cita.find({ "nombre": { $regex: new RegExp(dataLower)}}).lean();
+                    if(cita.length<1){
+                        const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
+                        cita = await Cita.find({ "nombre": { $regex: new RegExp(dataUpperLower)}}).lean();
+                    }
+                }
+            }
+        }
+    }
+
+    cita.forEach(citas => {
+        if (citas.fecha_cita.getMinutes() < 10){
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
+        }else{citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();}
+    });
+
+    res.render('menu/Citas/cita', {
+        cita,
+        title:"Productos",
+        style:"producto.css"
+    });
+}
+
+
 module.exports = {
     getCita,
     getCitaPen,
@@ -151,4 +192,5 @@ module.exports = {
     createCita,
     updateCita,
     deleteCita,
+    filtrarCitas,
 }

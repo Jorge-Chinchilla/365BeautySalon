@@ -1,4 +1,5 @@
 const Empleados = require('../models/empleados')
+const Productos = require("../models/productos");
 
 const getEmpleado = async (req, res) => {
     const empleados = await Empleados.find().lean();
@@ -73,6 +74,38 @@ const deleteEmpleado = async (req, res)=>{
     res.redirect('/empleado');
 }
 
+const filtrarEmpleado = async (req, res) => {
+    const data = req.body.nombre;
+    console.log(data);
+    empleados = await Empleados.find({ "nombre": { $regex: new RegExp(data)}}).lean();
+
+    if(empleados.length<1){
+        const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
+        empleados = await Empleados.find({ "nombre": { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(empleados.length<1){
+            const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
+            empleados = await Empleados.find({ "nombre": { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(empleados.length<1){
+                const dataUpper = data.toUpperCase();
+                empleados = await Empleados.find({ "nombre": { $regex: new RegExp(dataUpper)}}).lean();
+                if(empleados.length<1){
+                    const dataLower = data.toLowerCase();
+                    empleados = await Empleados.find({ "nombre": { $regex: new RegExp(dataLower)}}).lean();
+                    if(empleados.length<1){
+                        const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
+                        empleados = await Empleados.find({ "nombre": { $regex: new RegExp(dataUpperLower)}}).lean();
+                    }
+                }
+            }
+        }
+    }
+    res.render('menu/empleado/empleado', {
+        empleados,
+        title:"Empleados",
+        style:"producto.css"
+    });
+}
+
 module.exports = {
     getEmpleado,
     getCreateEmpleado,
@@ -82,4 +115,5 @@ module.exports = {
     createEmpleado,
     updateEmpleado,
     deleteEmpleado,
+    filtrarEmpleado,
 }
