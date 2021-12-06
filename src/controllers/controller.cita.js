@@ -75,7 +75,7 @@ const getCreateCita = async (req, res) => {
     res.render('menu/Citas/add_cita', {
         servicio,
         title:'Agregar Cita',
-        style:'add_servicio.css'
+        style:'info.css'
     });
 }
 
