@@ -343,6 +343,35 @@ const filtrarCitasFin = async (req, res) => {
     });
 }
 
+
+const getCreateClienteCita = async (req, res) => {
+    const servicio = await Servicio.find().lean();
+    res.render('landing/clientes_cita', {
+        servicio,
+        title:'Agendar',
+        style:'clientes_cita.css'
+    });
+}
+
+const createClienteCita = async (req, res) => {
+    const data = req.body;
+    const newCita = new Cita({
+        nombre: data.nombre,
+        correo: data.correo,
+        numero: data.numero,
+        servicio: data.servicio,
+        estado: data.estado,
+        fecha_cita: data.fecha_cita,
+        fecha: data.fecha,
+    });
+    await newCita.save();
+    res.render('landing/exito_cita', {
+        title:"Cita agendada",
+        style:"clientes_cita.css"
+    });
+}
+
+
 module.exports = {
     getCita,
     getCitaPen,
@@ -360,4 +389,6 @@ module.exports = {
     filtrarCitasPen,
     filtrarCitasCan,
     filtrarCitasFin,
+    getCreateClienteCita,
+    createClienteCita
 }
