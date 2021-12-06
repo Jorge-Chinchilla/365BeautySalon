@@ -8,4 +8,11 @@ router.get('/', (req, res)=>{
     });
 })
 
+router.get('/clientes_cita', (req, res)=>{
+    res.render('landing/clientes_cita', {
+        title:'365 Beauty Salon',
+        style: 'info.css'
+    });
+});
+
 module.exports = router;
