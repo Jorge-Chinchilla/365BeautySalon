@@ -1,17 +1,16 @@
 {{> navigation }}
-
 <div class="container-fluid">
     <div class="row query">
         <div class="col-sm-12">
             <div class="">
                 <div class="row">
                     <div class="col-lg-6 d-flex justify-content-center">
-                        <label class="label">Historial de Citas </label>
+                        <label class="label">Citas Finalizadas</label>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center">
-                        <form class="form-inline" action="/filtrarCitas" method="post">
+                        <form class="form-inline">
                             <div class="input-group mb-3 ">
-                                <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" placeholder="Nombre" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-primary" type="button">Buscar</button>
                                 </div>
@@ -34,25 +33,23 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Numero</th>
                             <th scope="col">Servicio</th>
-                            <th scope="col">Estado</th>
                             <th scope="col">Fecha de la Cita</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {{#each cita}}
-                        <tr>
-                            <td>
-                                <form action="/info_cita" method="post">
-                                    <input type="text" name="id" id="id" value={{_id}} hidden required>
-                                    <input class="btn btn-outline-secondary" type="submit" value="ver">
-                                </form>
-                            </td>
-                            <td>{{nombre}}</td>
-                            <td>{{numero}}</td>
-                            <td>{{servicio}}</td>
-                            <td>{{estado}}</td>
-                            <td>{{fecha_cita}}</td>
-                        </tr>
+                        {{#each finCita}}
+                            <tr>
+                                <td>
+                                    <form action="/info_cita" method="post">
+                                        <input type="text" name="id" id="id" value={{_id}} hidden required>
+                                        <input class="btn btn-outline-secondary" type="submit" value="ver">
+                                    </form>
+                                </td>
+                                <td>{{nombre}}</td>
+                                <td>{{numero}}</td>
+                                <td>{{servicio}}</td>
+                                <td>{{fecha_cita}}</td>
+                            </tr>
                         {{/each}}
                         </tbody>
                     </table>

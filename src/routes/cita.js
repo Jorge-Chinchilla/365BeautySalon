@@ -9,6 +9,8 @@ router.post('/info_cita', controllerCita.getInfoCita);
 router.post('/info_cita_pen', controllerCita.getInfoCitaPen);
 router.post('/edit_cita', controllerCita.getEditCita);
 router.get('/pen_cita', controllerCita.getCitaPen);
+router.get('/cancel_cita', controllerCita.getCitaCan);
+router.get('/fin_cita', controllerCita.getCitaFin);
 
 router.post('/cita/add_cita', controllerCita.createCita);
 router.post('/cita/edit_cita/:_id', controllerCita.updateCita);

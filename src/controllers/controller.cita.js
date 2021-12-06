@@ -36,6 +36,40 @@ const getCitaPen = async (req, res) => {
     });
 }
 
+const getCitaCan = async (req, res) => {
+    const canCita = await Cita.find({ estado: "Cancelado"}).lean();
+    canCita.forEach(citas => {
+        if (citas.fecha_cita.getMinutes() < 10){
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
+
+        }else{
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
+        }
+    });
+    res.render('menu/Citas/cancel_cita', {
+        canCita,
+        title:"Citas",
+        style:"producto.css"
+    });
+}
+
+const getCitaFin = async (req, res) => {
+    const finCita = await Cita.find({ estado: "Finalizado"}).lean();
+    finCita.forEach(citas => {
+        if (citas.fecha_cita.getMinutes() < 10){
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
+
+        }else{
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
+        }
+    });
+    res.render('menu/Citas/fin_cita', {
+        finCita,
+        title:"Citas",
+        style:"producto.css"
+    });
+}
+
 const getCreateCita = async (req, res) => {
     const servicio = await Servicio.find().lean();
     res.render('menu/Citas/add_cita', {
@@ -72,8 +106,10 @@ const getInfoCita = async (req, res) => {
 
 const getInfoCitaPen = async (req, res) => {
     const data = req.body;
-    const infoCita = await Cita.find({ _id: data.id }).lean();
-    infoCita.forEach(citas => {
+
+    const infoCitaPen = await Cita.find({ _id: data.id }).lean();
+    console.log(infoCitaPen)
+    infoCitaPen.forEach(citas => {
 
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
@@ -89,11 +125,12 @@ const getInfoCitaPen = async (req, res) => {
         }
     });
     res.render('menu/Citas/info_cita_pen', {
-        infoCita,
+        infoCitaPen,
         title:'Informacion de Cita',
         style:'info.css'
     });
 };
+
 
 const getEditCita = async (req, res) => {
     const data = req.body;
@@ -130,7 +167,6 @@ const createCita = async (req, res) => {
 
 const updateCita = async (req, res) => {
     const { nombre, correo, numero, servicio, fecha_cita, estado } = req.body;
-    console.log(req.body)
     await Cita.findByIdAndUpdate(req.params._id, { nombre, correo, numero, servicio, fecha_cita, estado }).lean();
     res.redirect('/pen_cita')
 }
@@ -184,6 +220,8 @@ const filtrarCitas = async (req, res) => {
 module.exports = {
     getCita,
     getCitaPen,
+    getCitaCan,
+    getCitaFin,
     getCreateCita,
     getInfoCita,
     getInfoCitaPen,
