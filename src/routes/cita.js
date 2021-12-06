@@ -6,8 +6,9 @@ const controllerCita = require('../controllers/controller.cita')
 router.get('/cita', controllerCita.getCita);
 router.get('/add_cita', controllerCita.getCreateCita);
 router.post('/info_cita', controllerCita.getInfoCita);
+router.post('/info_cita_pen', controllerCita.getInfoCitaPen);
 router.post('/edit_cita', controllerCita.getEditCita);
-router.post('/del_cita', controllerCita.getDeleteCita);
+router.get('/pen_cita', controllerCita.getCitaPen);
 
 router.post('/cita/add_cita', controllerCita.createCita);
 router.post('/cita/edit_cita/:_id', controllerCita.updateCita);

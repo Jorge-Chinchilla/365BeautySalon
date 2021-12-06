@@ -8,6 +8,7 @@ const CitaSchema = new Schema({
     numero: Number,
     servicio: String,
     fecha_cita: Date,
+    estado: String,
     fecha: { type: Date, default: Date.now }
 })
 
