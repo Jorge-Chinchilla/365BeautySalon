@@ -17,5 +17,7 @@ router.post('/cita/edit_cita/:_id', controllerCita.updateCita);
 router.post('/cita/del_cita/:_id', controllerCita.deleteCita);
 
 router.post('/filtrarCitas', controllerCita.filtrarCitas);
+router.post('/filtrarCitasPen', controllerCita.filtrarCitasPen);
+router.post('/filtrarCitasCan', controllerCita.filtrarCitasPen);
 
 module.exports = router;

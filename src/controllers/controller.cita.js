@@ -162,7 +162,7 @@ const createCita = async (req, res) => {
         fecha: data.fecha,
     });
     await newCita.save();
-    res.redirect('/cita');
+    res.redirect('/pen_cita');
 }
 
 const updateCita = async (req, res) => {
@@ -178,37 +178,36 @@ const deleteCita = async (req, res)=>{
 }
 
 const filtrarCitas = async (req, res) => {
-    const data = req.body.nombre
-    console.log(data)
-    cita = await Cita.find({ "nombre": { $regex: new RegExp(data)}}).lean();
-
+    const data = req.body.nombre;
+    cita = await Cita.find({ nombre: { $regex: new RegExp(data)}}).lean();
     if(cita.length<1){
         const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
-        cita = await Cita.find({ "nombre": { $regex: new RegExp(dataUpperFirst)}}).lean();
+        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperFirst)}}).lean();
         if(cita.length<1){
             const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
-            cita = await Cita.find({ "nombre": { $regex: new RegExp(dataLowerFirst)}}).lean();
+            cita = await Cita.find({ nombre: { $regex: new RegExp(dataLowerFirst)}}).lean();
             if(cita.length<1){
                 const dataUpper = data.toUpperCase();
-                cita = await Cita.find({ "nombre": { $regex: new RegExp(dataUpper)}}).lean();
+                cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpper)}}).lean();
                 if(cita.length<1){
                     const dataLower = data.toLowerCase();
-                    cita = await Cita.find({ "nombre": { $regex: new RegExp(dataLower)}}).lean();
+                    cita = await Cita.find({ nombre: { $regex: new RegExp(dataLower)}}).lean();
                     if(cita.length<1){
                         const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
-                        cita = await Cita.find({ "nombre": { $regex: new RegExp(dataUpperLower)}}).lean();
+                        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperLower)}}).lean();
                     }
                 }
             }
         }
     }
-
+    console.log(cita)
     cita.forEach(citas => {
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
-        }else{citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();}
+        }else{
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
+        }
     });
-
     res.render('menu/Citas/cita', {
         cita,
         title:"Productos",
@@ -216,6 +215,97 @@ const filtrarCitas = async (req, res) => {
     });
 }
 
+const filtrarCitasPen = async (req, res) => {
+    const data = req.body.nombre;
+    cita = await Cita.find({ nombre: { $regex: new RegExp(data)}}).lean();
+    if(cita.length<1){
+        const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
+        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(cita.length<1){
+            const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
+            cita = await Cita.find({ nombre: { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(cita.length<1){
+                const dataUpper = data.toUpperCase();
+                cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpper)}}).lean();
+                if(cita.length<1){
+                    const dataLower = data.toLowerCase();
+                    cita = await Cita.find({ nombre: { $regex: new RegExp(dataLower)}}).lean();
+                    if(cita.length<1){
+                        const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
+                        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperLower)}}).lean();
+                    }
+                }
+            }
+        }
+    }
+    console.log(cita);
+    penCita=[];
+    cita.forEach(citas => {
+        if (citas.estado == "Pendiente"){
+            penCita.push(citas);
+        }
+    });
+    console.log(penCita)
+    penCita.forEach(citas => {
+        if (citas.fecha_cita.getMinutes() < 10){
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
+        }else{
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
+        }
+    });
+    console.log(penCita);
+    res.render('menu/Citas/pen_cita', {
+        penCita,
+        title:"Productos",
+        style:"producto.css"
+    });
+}
+
+const filtrarCitasCan = async (req, res) => {
+    const data = req.body.nombre;
+    cita = await Cita.find({ nombre: { $regex: new RegExp(data)}}).lean();
+    if(cita.length<1){
+        const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
+        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(cita.length<1){
+            const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
+            cita = await Cita.find({ nombre: { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(cita.length<1){
+                const dataUpper = data.toUpperCase();
+                cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpper)}}).lean();
+                if(cita.length<1){
+                    const dataLower = data.toLowerCase();
+                    cita = await Cita.find({ nombre: { $regex: new RegExp(dataLower)}}).lean();
+                    if(cita.length<1){
+                        const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
+                        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperLower)}}).lean();
+                    }
+                }
+            }
+        }
+    }
+    console.log(cita);
+    penCita=[];
+    cita.forEach(citas => {
+        if (citas.estado == "Pendiente"){
+            penCita.push(citas);
+        }
+    });
+    console.log(penCita)
+    penCita.forEach(citas => {
+        if (citas.fecha_cita.getMinutes() < 10){
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
+        }else{
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
+        }
+    });
+    console.log(penCita);
+    res.render('menu/Citas/pen_cita', {
+        penCita,
+        title:"Productos",
+        style:"producto.css"
+    });
+}
 
 module.exports = {
     getCita,
@@ -231,4 +321,5 @@ module.exports = {
     updateCita,
     deleteCita,
     filtrarCitas,
+    filtrarCitasPen,
 }
