@@ -8,11 +8,11 @@
                         <label class="label">Citas Canceladas</label>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center">
-                        <form class="form-inline">
+                        <form class="form-inline" action="/filtrarCitasCan" method="post">
                             <div class="input-group mb-3 ">
-                                <input type="text" class="form-control" placeholder="Nombre" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button">Buscar</button>
+                                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
                                 </div>
                             </div>
                         </form>

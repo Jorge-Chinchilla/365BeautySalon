@@ -155,5 +155,8 @@ Navigation bar Ending
 .btn-outline-danger:hover{
     background-color: #c6003e;
     color: white;
+}
 
+.form-control{
+    background-color: #1f005c;
 }
