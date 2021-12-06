@@ -108,7 +108,6 @@ const getInfoCitaPen = async (req, res) => {
     const data = req.body;
 
     const infoCitaPen = await Cita.find({ _id: data.id }).lean();
-    console.log(infoCitaPen)
     infoCitaPen.forEach(citas => {
 
         if (citas.fecha_cita.getMinutes() < 10){
@@ -200,7 +199,6 @@ const filtrarCitas = async (req, res) => {
             }
         }
     }
-    console.log(cita)
     cita.forEach(citas => {
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
@@ -238,14 +236,12 @@ const filtrarCitasPen = async (req, res) => {
             }
         }
     }
-    console.log(cita);
     penCita=[];
     cita.forEach(citas => {
         if (citas.estado == "Pendiente"){
             penCita.push(citas);
         }
     });
-    console.log(penCita)
     penCita.forEach(citas => {
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
@@ -253,7 +249,6 @@ const filtrarCitasPen = async (req, res) => {
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }
     });
-    console.log(penCita);
     res.render('menu/Citas/pen_cita', {
         penCita,
         title:"Productos",
@@ -284,24 +279,65 @@ const filtrarCitasCan = async (req, res) => {
             }
         }
     }
-    console.log(cita);
-    penCita=[];
+    canCita=[];
     cita.forEach(citas => {
-        if (citas.estado == "Pendiente"){
-            penCita.push(citas);
+        if (citas.estado == "Cancelado"){
+            canCita.push(citas);
         }
     });
-    console.log(penCita)
-    penCita.forEach(citas => {
+    console.log(canCita)
+    canCita.forEach(citas => {
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
         }else{
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }
     });
-    console.log(penCita);
-    res.render('menu/Citas/pen_cita', {
-        penCita,
+    res.render('menu/Citas/cancel_cita', {
+        canCita,
+        title:"Productos",
+        style:"producto.css"
+    });
+}
+
+const filtrarCitasFin = async (req, res) => {
+    const data = req.body.nombre;
+    cita = await Cita.find({ nombre: { $regex: new RegExp(data)}}).lean();
+    if(cita.length<1){
+        const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
+        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(cita.length<1){
+            const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
+            cita = await Cita.find({ nombre: { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(cita.length<1){
+                const dataUpper = data.toUpperCase();
+                cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpper)}}).lean();
+                if(cita.length<1){
+                    const dataLower = data.toLowerCase();
+                    cita = await Cita.find({ nombre: { $regex: new RegExp(dataLower)}}).lean();
+                    if(cita.length<1){
+                        const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
+                        cita = await Cita.find({ nombre: { $regex: new RegExp(dataUpperLower)}}).lean();
+                    }
+                }
+            }
+        }
+    }
+    finCita=[];
+    cita.forEach(citas => {
+        if (citas.estado == "Finalizado"){
+            finCita.push(citas);
+        }
+    });
+    finCita.forEach(citas => {
+        if (citas.fecha_cita.getMinutes() < 10){
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
+        }else{
+            citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
+        }
+    });
+    res.render('menu/Citas/fin_cita', {
+        finCita,
         title:"Productos",
         style:"producto.css"
     });
@@ -322,4 +358,6 @@ module.exports = {
     deleteCita,
     filtrarCitas,
     filtrarCitasPen,
+    filtrarCitasCan,
+    filtrarCitasFin,
 }
