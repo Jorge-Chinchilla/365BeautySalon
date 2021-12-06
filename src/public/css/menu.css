@@ -89,6 +89,10 @@ Navigation bar
 Navigation bar Ending
 */
 
+a{
+    text-decoration: none;
+}
+
 .container{
     margin-top: 3%;
     padding: 2%;
@@ -118,7 +122,7 @@ Navigation bar Ending
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
-.fas{
+.icono{
     color: gray;
 }
 
@@ -126,7 +130,7 @@ Navigation bar Ending
     color: #FF8296;
 }
 
-.item:hover .fas {
+.item:hover .icono {
     color: #FF8296;
 }
 
