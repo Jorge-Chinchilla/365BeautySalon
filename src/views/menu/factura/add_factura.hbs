@@ -1,0 +1,19 @@
+<form action="/factura/add_factura" method="POST">
+
+    {{#each infoCita}}
+    <label>Cliente </label><input type="text" name="nombreCliente" value="{{nombre}}" required>
+    <br>
+    {{/each}}
+
+    <label>fecha efectuada de factura</label><input type="date" name="fecha" required>
+    <br>
+
+    {{#each infoServicio}}
+    <label>Servicio </label><input type="text" name="nombreServicio" value="{{nombre}}" required>
+    <br>
+    <label>precio </label><input type="text" name="precioServicio" value="{{precio}}" required>
+    <br>
+    {{/each}}
+
+    <input type="submit" class="btn-login" value="Confirmar">
+</form>

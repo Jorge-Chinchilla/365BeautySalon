@@ -1,5 +1,5 @@
-const Cita = require('../models/citas')
 const Servicio = require('../models/servicios')
+const Cita = require('../models/citas')
 const Factura = require('../models/facturas')
 
 const getFactura = async (req, res) => {
@@ -11,8 +11,16 @@ const getFactura = async (req, res) => {
     });
 }
 
-const getCreateFactura = (req, res) => {
+const getCreateFactura = async (req, res) => {
+    const data = req.body;
+    const infoCita = await Cita.find({ _id: data.id }).lean();
+    const infoServicio = await Servicio.find({ nombre: data.servicio }).lean();
+    console.log(data);
+    console.log(infoCita);
+    console.log(infoServicio);
     res.render('menu/factura/add_factura', {
+        infoCita,
+        infoServicio,
         title: 'Nueva Factura',
         style: 'test.css'
     });

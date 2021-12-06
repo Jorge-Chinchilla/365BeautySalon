@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const CitaSchema = new Schema({
     nombre: String,
     correo: String,
-    numero: Number,
+    numero: String,
     servicio: String,
     fecha_cita: Date,
     estado: String,

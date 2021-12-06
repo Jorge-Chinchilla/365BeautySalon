@@ -5,9 +5,9 @@ const FacturaSchema = new Schema({
     kai_ID: String,
     cita_ID: String,
     clienteNombre: String,
-    clienteID: String,
+    servicio: String,
     fecha: { type: Date, default: Date.now },
-    precio: Number
+    total: Number
 })
 
 const Factura = mongoose.model('Factura', FacturaSchema)

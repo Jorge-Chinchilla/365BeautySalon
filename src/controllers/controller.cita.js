@@ -108,7 +108,6 @@ const getInfoCitaPen = async (req, res) => {
     const data = req.body;
 
     const infoCitaPen = await Cita.find({ _id: data.id }).lean();
-    console.log(infoCitaPen)
     infoCitaPen.forEach(citas => {
 
         if (citas.fecha_cita.getMinutes() < 10){
