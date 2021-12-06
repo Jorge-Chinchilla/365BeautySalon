@@ -1,5 +1,4 @@
-const mongoose = require('mongoose')
-const { mongodb } = require('./keys')
+const mongoose = require('mongoose');
 
 const database = mongoose.connect(`mongodb+srv://admin:asd123@cluster0.pejgq.mongodb.net/beauty_salon_365?retryWrites=true&w=majority`)
 .then((db)=>{
