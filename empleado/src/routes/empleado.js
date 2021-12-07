@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { isAuthenticated } = require('../lib/helpers');
 const controllerEmpleado = require('../controllers/controller.empleado')
-const controllerProducto = require("../controllers/controller.producto");
 
 router.get('/empleado',controllerEmpleado.getEmpleado);
 router.get('/add_empleado', controllerEmpleado.getCreateEmpleado);
