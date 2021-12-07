@@ -6,8 +6,7 @@ const session = require('express-session');
 const path = require('path');
 const flash = require('connect-flash');
 const passport = require('passport');
-const database = require('./database');
-const { constants } = require('buffer');
+const database = require('./database')
 
 //Inicializando
 const app = express();
@@ -52,15 +51,17 @@ app.use((req, res, next)=>{
 //Rutas
 app.use(require('./routes'));
 app.use(require('./routes/autenticacion'));
+app.use('/', require('./routes/producto'));
+app.use('/', require('./routes/empleado'));
+app.use('/', require('./routes/servicio'));
+app.use('/', require('./routes/cita'));
+app.use('/', require('./routes/factura'));
 app.use('/menu', require('./routes/menu'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Inicializar el servidor
-app.get('/', function (req, res){
-    const result = ""+exec("ping -c 1 beautysalon");
-    console.log(result);
+app.listen(app.get('port'), () => {
+    console.log('Servidor en puerto', app.get('port'));
 })
-
-app.listen(app.get('port'));

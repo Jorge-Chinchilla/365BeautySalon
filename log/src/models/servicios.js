@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 
 const ServicioSchema = new Schema({
     nombre: String,
-    precio: Number
+    precio: Number,
+    fecha: { type: Date, default: Date.now }
 })
 
 const Servicio = mongoose.model('Servicio', ServicioSchema)
