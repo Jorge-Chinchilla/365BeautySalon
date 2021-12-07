@@ -5,10 +5,8 @@ const Productos = require("../models/productos");
 const getCita = async (req, res) => {
     const cita = await Cita.find().lean();
     cita.forEach(citas => {
-
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
-
         }else{
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }

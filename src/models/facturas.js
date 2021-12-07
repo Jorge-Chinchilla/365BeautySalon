@@ -4,7 +4,9 @@ const Schema = mongoose.Schema
 const FacturaSchema = new Schema({
     kai_ID: String,
     cita_ID: String,
-    clienteNombre: String,
+    nFactura: Number,
+    nombre: String,
+    id_cliente: String,
     servicio: String,
     fecha: { type: Date, default: Date.now },
     total: Number

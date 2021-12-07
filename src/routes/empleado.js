@@ -4,7 +4,7 @@ const { isAuthenticated } = require('../lib/helpers');
 const controllerEmpleado = require('../controllers/controller.empleado')
 const controllerProducto = require("../controllers/controller.producto");
 
-router.get('/empleado', controllerEmpleado.getEmpleado);
+router.get('/empleado',controllerEmpleado.getEmpleado);
 router.get('/add_empleado', controllerEmpleado.getCreateEmpleado);
 router.post('/info_empleado', controllerEmpleado.getInfoEmpleado);
 router.post('/edit_empleado', controllerEmpleado.getEditEmpleado);
