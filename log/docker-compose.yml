@@ -33,3 +33,13 @@ services:
       - "52:3000"
     networks:
       - bridge
+
+  servicio:
+      container_name: servicio
+      restart: always
+      build:
+        context: ../servicio
+      ports:
+        - "53:3000"
+      networks:
+          - bridge
