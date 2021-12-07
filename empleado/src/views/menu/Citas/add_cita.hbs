@@ -1,0 +1,68 @@
+{{> navigation }}
+
+
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Agregar Producto</h2>
+                <hr class="regla">
+            </div>
+            <form action="/cita/add_cita" method="post">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Fecha:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="datetime-local" class="value" id="fecha_cita" name="fecha_cita" value="2021-12-01T14:00" min="2021-12-01T00:00">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Nombre:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="nombre" id="nombre" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Correo:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="email" class="value" name="correo" id="correo" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Numero:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="numero" id="numero" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Servicio:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <select name="servicio" id="servicio" class="value" aria-label="Default select example">
+                            <option selected>Servicios</option>
+                            {{#each servicio}}
+                                <option value="{{nombre}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <input type="text" class="form-control" name="estado" id="estado" value="Pendiente" hidden required>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <button class="btn btn-outline-primary">Guardar</button>
+                    <a class="btn btn btn-outline-danger" href="/pen_cita">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,59 @@
+{{> navigation }}
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Crear Factura</h2>
+                <hr class="regla">
+            </div>
+            <form action="/factura/add_factura" method="post">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Nombre:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="nombre" id="nombre" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">ID CLiente:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="id_cliente" id="id_cliente">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Servicio:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <select name="servicio" id="servicio" class="value" required>
+                            <option selected disabled value="">Servicios</option>
+                            {{#each servicio}}
+                                <option value="{{_id}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Cita:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <select name="cita_ID" id="cita_ID" class="value" aria-label="Default select example">
+                            <option selected value="61aed32bc604c3ea7cc26fef">Citas</option>
+                            {{#each cita}}
+                                <option value="{{_id}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <button class="btn btn-outline-primary">Guardar</button>
+                    <a class="btn btn btn-outline-danger" href="/factura">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{{> navigation }}
+{{#each infoServicio}}
+    <div class="container col-md-10 principal d-flex justify-content-center">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <h2 class="card-title">Servicio {{nombre}}</h2>
+                    <hr class="regla">
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Precio:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{precio}}Lps" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Registro:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{fecha}}" readonly>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <form action="/edit_servicio" method="post">
+                        <input type="text" name="id" id="id" value={{_id}} hidden required>
+                        <button type="submit" class="btn btn-outline-primary">Editar</button>
+                    </form>
+                    <form action="/del_servicio" method="post">
+                        <input type="text" name="id" id="id" value={{_id}} hidden required>
+                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}

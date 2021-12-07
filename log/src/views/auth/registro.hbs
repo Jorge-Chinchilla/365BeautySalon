@@ -1,0 +1,41 @@
+{{> navigation}}
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Registro</h2>
+                <hr class="regla">
+            </div>
+            <form action="/registro" method="POST">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Nombre:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="nombre_usuario" id="nombre_usuario" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Password:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="password" class="value" name="password" id="password" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Confirm:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="password" class="value" name="confirmPassword" id="confirmPassword" required>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <input type="submit" class="btn btn-outline-primary" value="Registrar">
+<!--                    <a class="btn btn btn-outline-danger" href="/factura">Cancelar</a>-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

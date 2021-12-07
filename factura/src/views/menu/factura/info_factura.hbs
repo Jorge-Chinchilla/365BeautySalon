@@ -1,0 +1,72 @@
+{{> navigation }}
+{{#each infoFactura}}
+    <div class="container col-md-10 principal d-flex justify-content-center">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <h2 class="card-title">{{nombre}}</h2>
+                    <hr class="regla">
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">N° factura:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{nFactura}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">KAI:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{kai_ID}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">ID:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{id_cliente}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Servicio:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{servicio}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Total:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{total}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Cita:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{cita_ID}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Registro:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{fecha}}" readonly>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <a class="btn btn-outline-primary" href="/factura">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}

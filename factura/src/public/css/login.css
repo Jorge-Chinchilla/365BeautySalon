@@ -1,0 +1,86 @@
+/*BLOQUE DE CSS UNIVERSAL PARA TODAS LAS PAGINAS*/
+
+h1, h2, h3, h4, h6 {
+    font-family: "Montserrat";
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+p {
+    color: #8f8f8f;
+}
+
+
+/*BLOQUE DE CSS UNIVERSAL PARA TODAS LAS PAGINAS FINAL*/
+
+/*BODY GENERAL*/
+body {
+    font-family: "Montserrat-Black", sans-serif;
+    background: linear-gradient(90deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b);
+}
+/*BODY GENERAL END*/
+
+/*Login Page*/
+.content{
+    margin: 8%;
+    background-color: #fff;
+    opacity: 0.8;
+    padding: 4rem 1rem 4rem 1rem;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+
+}
+.signin-text{
+    font-style: normal;
+    font-weight: 800 !important;
+
+}
+.form-control{
+    display: block;
+    width:100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height:1.5;
+    border-color: #ff4c68 !important;
+    border-style: solid !important;
+    border-width: 0 0 1px 0 !important;
+    padding: 0px !important;
+    color:#495057;
+    height: auto;
+    border-radius: 0;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+
+
+.form-control:focus{
+    color: #495057;
+    background-color: #fff;
+    border-color: #fff;
+    outline: 0;
+    box-shadow: none;
+}
+
+.birthday-section{
+    padding: 15px;
+}
+.btn-class{
+    background-color: white;
+    color: #ff4c68;
+    border: 1px solid #ff4c68;
+    border-radius: 10%;
+}
+.btn-class:hover{
+    background-color:  #ff4c68;
+    color: #fff;
+}
+/*Login Page End*/

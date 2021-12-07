@@ -1,0 +1,43 @@
+{{> navigation }}
+{{#each editKAI}}
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Crear Factura</h2>
+                <hr class="regla">
+            </div>
+            <form action="/factura/add_KAI/'61adbef49338125d822b28ed'" method="post">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">KAI:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="kai_ID" id="kai_ID" value="{{kai_ID}}" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Inicio</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="number" class="value" name="primero" id="primero" value="{{primero}}" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Fin</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="number" class="value" name="ultimo" id="ultimo" value="{{ultimo}}" required>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <button class="btn btn-outline-primary">Guardar</button>
+                    <a class="btn btn btn-outline-danger" href="/factura">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{/each}}

@@ -1,0 +1,79 @@
+
+<!--BARRA-->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-color fixed">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-file-invoice-dollar fa-lg"></i> Facturación
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="/factura">Facturas</a></li>
+                    <li><a class="dropdown-item drop-item" href="/add_factura">Crear Factura</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-boxes"></i> Inventario
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="/producto">Ver inventario</a></li>
+                    <li><a class="dropdown-item drop-item" href="/add_producto">Agregar producto</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-concierge-bell"></i> Servicios
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="/servicio">Ver servicios</a></li>
+                    <li><a class="dropdown-item drop-item" href="/add_servicio">Agregar servicio</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-calendar-check"></i> Citas
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="/cita">Historial de citas</a></li>
+                    <li><a class="dropdown-item drop-item" href="/add_cita">Agregar citas</a></li>
+                    <li><a class="dropdown-item drop-item" href="/pen_cita">Citas Pendientes</a></li>
+                    <li><a class="dropdown-item drop-item" href="/cancel_cita">Citas Canceladas</a></li>
+                    <li><a class="dropdown-item drop-item" href="/fin_cita">Citas Finalizadas</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-users-cog"></i> Empleados
+                </a>
+                <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item drop-item" href="/empleado">Ver empleados</a></li>
+                    <li><a class="dropdown-item drop-item" href="/add_empleado">Agregar Empleado</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="/menu">365 Beauty Salon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <div class="nav-item log-out-circle-nav">
+                <a class="fas fa-sign-out-alt fa-lg nav-item fa-cog" href="/logout"></a>
+            </div>
+        </ul>
+    </div>
+</nav>
+<!--SPACER-->
+<nav class="">
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="/menu">SPACER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>

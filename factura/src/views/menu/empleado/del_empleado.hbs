@@ -1,0 +1,48 @@
+{{> navigation }}
+
+{{#each delEmpleado}}
+    <div class="container col-md-10 principal d-flex justify-content-center">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <h2 class="card-title">¿Desea eliminar este empleado?</h2>
+                    <hr class="regla">
+                </div>
+                <div class="row">
+                    <input type="hidden" name="_id" value="{{_id}}">
+                    <div class="col-12 d-flex justify-content-center">
+                        <h4 class="linea">Nombre:</h4>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <input type="text" class="value" value="{{nombre}} {{apellido}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">ID:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{id}}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Cargo:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" value="{{cargo}}" readonly>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <form action="/empleado/del_empleado/{{_id}}" method="post">
+                        <button class="btn btn-outline-danger">Eliminar</button>
+                    </form>
+                    <form action="/info_empleado" method="post" class="d-flex justify-content-center">
+                        <input type="text" name="id" id="id" value={{id}} hidden required>
+                        <button type="submit" class="btn btn-outline-primary">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}

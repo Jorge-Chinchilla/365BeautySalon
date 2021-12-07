@@ -1,0 +1,68 @@
+{{> navigation }}
+
+
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Agregar Empleado</h2>
+                <hr class="regla">
+            </div>
+            <form action="/empleado/add_empleado" method="post">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Nombre:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="nombre" id="nombre" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Apellido:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="apellido" id="apellido" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">ID:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="id" id="id" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Correo:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="email" class="value" name="correo" id="correo" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Cargo:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="cargo" id="cargo" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Telefono:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="telefono" id="telefono" required>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <button class="btn btn-outline-primary">Guardar</button>
+                    <a class="btn btn btn-outline-danger" href="/empleado">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

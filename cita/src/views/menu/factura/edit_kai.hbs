@@ -1,0 +1,53 @@
+{{> navigation }}
+{{#each editKAI}}
+
+    <div class="container col-md-12 principal d-flex justify-content-center">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">
+                    <h2 class="card-title">KAI para las Facturas</h2>
+                    <hr class="regla">
+                </div>
+                <form action="/factura/edit_kai/{{_id}}" method="post">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">KAI:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="text" value="{{kai_ID}}" class="value" name="kai_ID" id="kai_ID" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Primera Factura:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="number" value="{{primero}}" class="value" name="primero" id="primero" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Ultima Factura:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="number" value="{{ultimo}}" class="value" name="ultimo" id="ultimo" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h4 class="linea">Empezar Factura:</h4>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input type="number" value="{{actual}}" class="value" name="actual" id="actual" required>
+                        </div>
+                    </div>
+                    <div class="row buttons d-flex justify-content-around">
+                        <button class="btn btn-outline-primary">Actualizar</button>
+                        <a class="btn btn-outline-danger" href="/factura">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{{/each}}

@@ -1,0 +1,35 @@
+{{> navigation }}
+
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Agregar Servicio</h2>
+                <hr class="regla">
+            </div>
+            <form action="/servicio/add_servicio" method="post">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Nombre:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="nombre" id="nombre" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="linea">Precio:</h4>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <input type="text" class="value" name="precio" id="precio" required>
+                    </div>
+                </div>
+                <div class="row buttons d-flex justify-content-around">
+                    <button class="btn btn-outline-primary">Guardar</button>
+                    <a class="btn btn btn-outline-danger" href="/servicio">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

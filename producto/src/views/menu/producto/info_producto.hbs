@@ -1,0 +1,63 @@
+{{> navigation }}
+{{#each infoProducto}}
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">{{nombre}}</h2>
+                <hr class="regla">
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Categoria:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{categoria}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Disponible:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{cantidad}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Venta:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{precio_venta}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Compra:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{precio_compra}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Registro:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{fecha}}" readonly>
+                </div>
+            </div>
+            <div class="row buttons d-flex justify-content-around">
+                <form action="/edit_producto" method="post">
+                    <input type="text" name="id" id="id" value={{_id}} hidden required>
+                    <button type="submit" class="btn btn-outline-primary">Editar</button>
+                </form>
+                <form action="/del_producto" method="post">
+                    <input type="text" name="id" id="id" value={{_id}} hidden required>
+                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

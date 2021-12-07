@@ -1,0 +1,83 @@
+{{> navigation }}
+{{#each infoCitaPen}}
+<div class="container col-md-10 principal d-flex justify-content-center">
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row d-flex justify-content-center">
+                <h2 class="card-title">Cita de {{nombre}}</h2>
+                <hr class="regla">
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Servicio:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{servicio}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Estado:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{estado}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Fecha de Cita:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{fecha_cita}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Correo:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{correo}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Numero:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{numero}}" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h4 class="linea">Registro:</h4>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <input type="text" class="value" value="{{fecha}}" readonly>
+                </div>
+            </div>
+            <div class="row buttons d-flex justify-content-around">
+                <form action="/cita/edit_cita/{{_id}}" method="post">
+                    <input type="text" name="nombre" id="nombre" value="{{nombre}}" hidden required>
+                    <input type="email" name="correo" id="correo" value="{{correo}}" hidden required>
+                    <input type="text" name="numero" id="numero" value="{{numero}}" hidden required>
+                    <input type="text" name="servicio" id="servicio" value="{{servicio}}" hidden required>
+                    <input type="text" name="fecha_cita" id="fecha_cita" value="{{fecha_cita}}" hidden required>
+                    <input type="text" name="estado" id="estado" value="Finalizado" hidden required>
+
+                    <button type="submit" class="btn btn-outline-primary">Finalizar</button>
+                </form>
+                <form action="/cita/edit_cita/{{_id}}" method="post">
+                    <input type="text" name="nombre" id="nombre" value="{{nombre}}" hidden required>
+                    <input type="email" name="correo" id="correo" value="{{correo}}" hidden required>
+                    <input type="text" name="numero" id="numero" value="{{numero}}" hidden required>
+                    <input type="text" name="servicio" id="servicio" value="{{servicio}}" hidden required>
+                    <input type="text" name="fecha_cita" id="fecha_cita" value="{{fecha_cita}}" hidden required>
+                    <input type="text" name="estado" id="estado" value="Cacelado" hidden required>
+
+                    <button type="submit" class="btn btn-outline-danger">Cancelar Cita</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

@@ -1,0 +1,43 @@
+{{> navigation }}
+{{#each editCita}}
+
+<section class="d-flex justify-content-center">
+    <div class="card col-sm-3 p-3">
+        <div class="mb-3 text-center">
+            <h2>Cita de {{nombre}}</h2>
+        </div>
+        <div class="mb-2">
+            <form action="/cita/add_cita" method="post">
+                <div class="mb-2">
+                    <label for="nombre">Nombre del Cliente</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" required>
+                </div>
+                <div class="mb-2">
+                    <label for="correo">Correo</label>
+                    <input type="email" class="form-control" name="correo" id="correo" value="{{correo}}" required>
+                </div>
+                <div class="mb-2">
+                    <label for="numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="numero" value="{{numero}}" required>
+                </div>
+{{/each}}
+                <div class="mb-2">
+                    <select class="form-control" name="servicio" id="servicio" class="form-select" aria-label="Default select example">
+                        <option selected>Servicios</option>
+                        {{#each servicio}}
+                            <option value="{{nombre}}">{{nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label for="fecha_cita">Fecha</label>
+                    <input class="form-control" type="datetime-local" id="fecha_cita" name="fecha_cita" min="2021-12-01T00:00">
+                </div>
+                <div class="mb-2 text-center">
+                    <button class="btn btn-success">Guardar</button>
+                    <a class="btn btn btn-danger" href="/cita">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
