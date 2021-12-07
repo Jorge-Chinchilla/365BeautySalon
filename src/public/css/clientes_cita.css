@@ -101,6 +101,7 @@ Navigation bar Ending
 
 .card{
     border-radius: 25px;
+    opacity: 0.8;
 }
 
 .card-body{
@@ -167,4 +168,12 @@ Navigation bar Ending
 
 .form-control{
     background-color: #1f005c;
+}
+
+.fa-check-circle{
+    color: green;
+}
+
+.btn-outline-primary{
+    margin-top: 5%;
 }

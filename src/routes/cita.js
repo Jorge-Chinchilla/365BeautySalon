@@ -14,7 +14,7 @@ router.get('/cancel_cita', controllerCita.getCitaCan);
 router.get('/fin_cita', controllerCita.getCitaFin);
 
 router.post('/cita/add_cita', controllerCita.createCita);
-router.post('/cita/cliente_add_cita', controllerCita.createClienteCita);
+router.post('/cliente_add_cita', controllerCita.createClienteCita);
 
 router.post('/cita/edit_cita/:_id', controllerCita.updateCita);
 router.post('/cita/del_cita/:_id', controllerCita.deleteCita);
