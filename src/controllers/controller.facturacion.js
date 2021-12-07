@@ -7,6 +7,7 @@ const Productos = require("../models/productos");
 
 const getFactura = async (req, res) => {
     const factura = await Factura.find().lean();
+    const kai = await KAI.find().lean();
     factura.forEach(facturas => {
         if (facturas.fecha.getMinutes() < 10){
             facturas.fecha = facturas.fecha.toDateString() + " " + facturas.fecha.getHours()+":"+facturas.fecha.getMinutes()+"0";
@@ -16,6 +17,7 @@ const getFactura = async (req, res) => {
     });
     res.render('menu/factura/factura', {
         factura,
+        kai,
         title: "Facturas",
         style: "producto.css"
     });
@@ -31,12 +33,17 @@ const getCreateFactura = async (req, res) => {
         style: "info.css"
     });
 }
-const getCreateKAI = async (req, res) => {
-    res.render('menu/factura/add_KAI', {
-        title: 'Nuevo KAI',
-        style: "info.css"
+
+const getEditKAI = async (req, res) => {
+    const data = req.body;
+    console.log(data.id);
+    const editKAI = await KAI.find({ _id: data.id }).lean();
+    res.render('menu/factura/edit_kai', {
+        editKAI,
+        title:'Editar Producto',
+        style:'info.css'
     });
-}
+};
 
 const getInfoFactura = async (req, res) => {
     res.render('menu/factura/info_factura', {
@@ -64,32 +71,32 @@ const createFactura = async (req, res) => {
         ultimo = kais.ultimo;
         actual = kais.actual;
     });
-    const data = req.body;
-    const newFactura = new Factura({
-        kai_ID: kai_ID,
-        nFactura: actual,
-        cita_ID: data.cita_ID,
-        nombre: data.nombre,
-        id_cliente: data.id_cliente,
-        servicio: data.servicio,
-    });
-    await newFactura.save();
-    actual= actual+1;
-    await KAI.findByIdAndUpdate(kai_id, {kai_ID, primero, ultimo, actual}).lean();
-    res.redirect('/factura');
+    if(ultimo<actual){
+        res.redirect('/factura');
+    }else{
+        const data = req.body;
+        const newFactura = new Factura({
+            kai_ID: kai_ID,
+            nFactura: actual,
+            cita_ID: data.cita_ID,
+            nombre: data.nombre,
+            id_cliente: data.id_cliente,
+            servicio: data.servicio,
+        });
+        await newFactura.save();
+        actual= actual+1;
+        await KAI.findByIdAndUpdate(kai_id, {kai_ID, primero, ultimo, actual}).lean();
+        res.redirect('/factura');
+    }
 }
 
-const createKAI = async (req, res) => {
-    const data = req.body;
-    const newKAI = new KAI({
-        kai_ID: data.kai_ID,
-        primero: data.primero,
-        ultimo: data.ultimo,
-        actual: data.primero,
-    });
-    await newKAI.save();
-    res.redirect('/factura');
+
+const updateKAI = async (req, res) => {
+    const { kai_ID, primero, ultimo, actual} = req.body;
+    await KAI.findByIdAndUpdate(req.params.id, { kai_ID, primero, ultimo, actual}).lean();
+    res.redirect('/factura')
 }
+
 
 const deleteFactura = async (req, res)=>{
     await Factura.findByIdAndDelete(req.params.id);
@@ -99,10 +106,10 @@ const deleteFactura = async (req, res)=>{
 module.exports = {
     getFactura,
     getCreateFactura,
-    getCreateKAI,
     getInfoFactura,
     getDeleteFactura,
     createFactura,
-    createKAI,
+    updateKAI,
+    getEditKAI,
     deleteFactura
 }

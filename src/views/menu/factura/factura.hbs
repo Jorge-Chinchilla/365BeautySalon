@@ -1,9 +1,13 @@
 {{> navigation }}
-<div class="container-fluid">
-    <form action="/add_KAI" method="post">
-        <input class="btn btn-outline-primary" type="submit" value="KAI">
-    </form>
-</div>
+{{#each kai}}
+    <div class="container-fluid">
+        <form action="/edit_kai" method="post">
+            <input type="text" name="id" id="id" value={{_id}} hidden required>
+            <button type="submit" class="btn btn-outline-primary">KAI</button>
+        </form>
+    </div>
+{{/each}}
+
 <div class="container-fluid">
     <div class="row query">
         <div class="col-12">

@@ -19,6 +19,15 @@ const getCreateServicio = (req, res) => {
 const getInfoServicio = async (req, res) => {
     const data = req.body;
     const infoServicio = await Servicio.find({ _id: data.id }).lean();
+
+    infoServicio.forEach(servicios => {
+        if (servicios.fecha.getMinutes() < 10){
+            servicios.fecha = servicios.fecha.toDateString() + " " + servicios.fecha.getHours()+":"+servicios.fecha.getMinutes()+"0";
+        }else{
+            servicios.fecha = servicios.fecha.toDateString() + " " + servicios.fecha.getHours()+":"+servicios.fecha.getMinutes();
+        }
+    });
+
     res.render('menu/servicio/info_servicio', {
         infoServicio,
         title:'Agregar Servicio',
@@ -28,7 +37,6 @@ const getInfoServicio = async (req, res) => {
 
 const getEditServicio = async (req, res) => {
     const data = req.body;
-    console.log(data.id)
     const editServicio = await Servicio.find({ _id: data.id }).lean();
     res.render('menu/servicio/edit_servicio', {
         editServicio,
