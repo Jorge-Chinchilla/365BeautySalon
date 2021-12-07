@@ -66,7 +66,7 @@
 
                     <button type="submit" class="btn btn-outline-primary">Finalizar</button>
                 </form>
-                <form action="/cita/edit_cita" method="post">
+                <form action="/cita/edit_cita/{{_id}}" method="post">
                     <input type="text" name="nombre" id="nombre" value="{{nombre}}" hidden required>
                     <input type="email" name="correo" id="correo" value="{{correo}}" hidden required>
                     <input type="text" name="numero" id="numero" value="{{numero}}" hidden required>

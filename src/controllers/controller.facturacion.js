@@ -1,9 +1,7 @@
-const Factura = require('../models/facturas')
-const Servicio = require('../models/servicios')
-const Cita = require('../models/citas')
-const KAI = require('../models/kai')
-const {NULL} = require("mysql/lib/protocol/constants/types");
-const Productos = require("../models/productos");
+const Factura = require('../models/facturas');
+const Servicio = require('../models/servicios');
+const Cita = require('../models/citas');
+const KAI = require('../models/kai');
 
 const getFactura = async (req, res) => {
     const factura = await Factura.find().lean();
@@ -46,7 +44,8 @@ const getEditKAI = async (req, res) => {
 };
 
 const getInfoFactura = async (req, res) => {
-    const infoFactura = await Factura.find().lean();
+    const data = req.body;
+    const infoFactura = await Factura.find({ _id: data.id }).lean();
     infoFactura.forEach(facturas => {
         if (facturas.fecha.getMinutes() < 10){
             facturas.fecha = facturas.fecha.toDateString() + " " + facturas.fecha.getHours()+":"+facturas.fecha.getMinutes()+"0";
@@ -60,16 +59,6 @@ const getInfoFactura = async (req, res) => {
         style: 'info.css'
     });
 };
-
-const getDeleteFactura = async (req, res) => {
-    const data = req.body;
-    const delFactura = await Factura.find({ kai_ID: data.kai_ID }).lean();
-    res.render('menu/factura/del_factura', {
-        delFactura,
-        title: 'Eliminar Factura',
-        style: 'test.css'
-    });
-}
 
 const createFactura = async (req, res) => {
 
@@ -89,7 +78,6 @@ const createFactura = async (req, res) => {
         const getServicio = await Servicio.findById({ _id: data.servicio }).lean();
 
         const cita = await Cita.findById({ _id: data.cita_ID}).lean();
-        console.log(cita,"Cita Creada");
         if(cita != null){
             nombre = cita.nombre;
             correo = cita.correo;
@@ -98,11 +86,14 @@ const createFactura = async (req, res) => {
             fecha_cita = cita.fecha_cita;
             estado = "Finalizado";
             await Cita.findByIdAndUpdate(data.cita_ID, { nombre, correo, numero, servicio, fecha_cita, estado }).lean();
+        }else{
+            nombre ="";
         }
+
 
         const newFactura = new Factura({
             kai_ID: kai_ID,
-            cita_ID: data.cita_ID,
+            cita_ID: nombre,
             nFactura: actual,
             nombre: data.nombre,
             id_cliente: data.id_cliente,
@@ -123,19 +114,51 @@ const updateKAI = async (req, res) => {
     res.redirect('/factura')
 }
 
-
-const deleteFactura = async (req, res)=>{
-    await Factura.findByIdAndDelete(req.params.id);
-    res.redirect('/factura');
+const filtrarFactura = async (req, res) => {
+    const data = req.body.nombre;
+    factura = await Factura.find({ nombre: { $regex: new RegExp(data)}}).lean();
+    if(factura.length<1){
+        const dataUpperFirst = data.charAt(0).toUpperCase() + data.slice(1);
+        factura = await Factura.find({ nombre: { $regex: new RegExp(dataUpperFirst)}}).lean();
+        if(factura.length<1){
+            const dataLowerFirst = data.charAt(0).toLowerCase() + data.slice(1);
+            factura = await Factura.find({ nombre: { $regex: new RegExp(dataLowerFirst)}}).lean();
+            if(factura.length<1){
+                const dataUpper = data.toUpperCase();
+                factura = await Factura.find({ nombre: { $regex: new RegExp(dataUpper)}}).lean();
+                if(factura.length<1){
+                    const dataLower = data.toLowerCase();
+                    factura = await Factura.find({ nombre: { $regex: new RegExp(dataLower)}}).lean();
+                    if(factura.length<1){
+                        const dataUpperLower = data.charAt(0).toUpperCase() + data.slice(1).toLowerCase();
+                        factura = await Factura.find({ nombre: { $regex: new RegExp(dataUpperLower)}}).lean();
+                    }
+                }
+            }
+        }
+    }
+    factura.forEach(facturas => {
+        if (facturas.fecha.getMinutes() < 10){
+            facturas.fecha = facturas.fecha.toDateString() + " " + facturas.fecha.getHours()+":"+facturas.fecha.getMinutes()+"0";
+        }else{
+            facturas.fecha = facturas.fecha.toDateString() + " " + facturas.fecha.getHours()+":"+facturas.fecha.getMinutes();
+        }
+    });
+    const kai = await KAI.find().lean();
+    res.render('menu/factura/factura', {
+        factura,
+        kai,
+        title:"Factura",
+        style:"producto.css"
+    });
 }
 
 module.exports = {
     getFactura,
     getCreateFactura,
     getInfoFactura,
-    getDeleteFactura,
     createFactura,
     updateKAI,
     getEditKAI,
-    deleteFactura
+    filtrarFactura
 }

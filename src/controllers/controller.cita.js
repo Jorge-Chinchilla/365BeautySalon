@@ -21,7 +21,6 @@ const getCitaPen = async (req, res) => {
     penCita.forEach(citas => {
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
-
         }else{
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }
@@ -38,7 +37,6 @@ const getCitaCan = async (req, res) => {
     canCita.forEach(citas => {
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
-
         }else{
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }
@@ -55,7 +53,6 @@ const getCitaFin = async (req, res) => {
     finCita.forEach(citas => {
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
-
         }else{
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }
@@ -80,16 +77,13 @@ const getInfoCita = async (req, res) => {
     const data = req.body;
     const infoCita = await Cita.find({ _id: data.id }).lean();
     infoCita.forEach(citas => {
-
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
-
         }else{
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }
         if (citas.fecha.getMinutes() < 10){
             citas.fecha = citas.fecha.toDateString() + " " + citas.fecha.getHours()+":"+citas.fecha.getMinutes()+"0";
-
         }else{
             citas.fecha = citas.fecha.toDateString() + " " + citas.fecha.getHours()+":"+citas.fecha.getMinutes();
         }
@@ -103,19 +97,15 @@ const getInfoCita = async (req, res) => {
 
 const getInfoCitaPen = async (req, res) => {
     const data = req.body;
-
     const infoCitaPen = await Cita.find({ _id: data.id }).lean();
     infoCitaPen.forEach(citas => {
-
         if (citas.fecha_cita.getMinutes() < 10){
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes()+"0";
-
         }else{
             citas.fecha_cita = citas.fecha_cita.toDateString() + " " + citas.fecha_cita.getHours()+":"+citas.fecha_cita.getMinutes();
         }
         if (citas.fecha.getMinutes() < 10){
             citas.fecha = citas.fecha.toDateString() + " " + citas.fecha.getHours()+":"+citas.fecha.getMinutes()+"0";
-
         }else{
             citas.fecha = citas.fecha.toDateString() + " " + citas.fecha.getHours()+":"+citas.fecha.getMinutes();
         }
@@ -126,7 +116,6 @@ const getInfoCitaPen = async (req, res) => {
         style:'info.css'
     });
 };
-
 
 const getEditCita = async (req, res) => {
     const data = req.body;
@@ -169,7 +158,6 @@ const updateCita = async (req, res) => {
 
 const deleteCita = async (req, res)=>{
     await Cita.findByIdAndDelete(req.params.id);
-    // req.flash("success_msg", "Producto Eliminado");
     res.redirect('/cita');
 }
 
@@ -341,7 +329,6 @@ const filtrarCitasFin = async (req, res) => {
     });
 }
 
-
 const getCreateClienteCita = async (req, res) => {
     const servicio = await Servicio.find().lean();
     res.render('landing/clientes_cita', {
@@ -368,7 +355,6 @@ const createClienteCita = async (req, res) => {
         style:"clientes_cita.css"
     });
 }
-
 
 module.exports = {
     getCita,
