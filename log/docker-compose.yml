@@ -43,3 +43,23 @@ services:
         - "53:3000"
       networks:
           - bridge
+
+  cita:
+    container_name: cita
+    restart: always
+    build:
+      context: ../cita
+    ports:
+      - "54:3000"
+    networks:
+      - bridge
+
+  factura:
+    container_name: factura
+    restart: always
+    build:
+      context: ../factura
+    ports:
+      - "55:3000"
+    networks:
+      - bridge
