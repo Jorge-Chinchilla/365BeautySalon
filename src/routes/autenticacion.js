@@ -6,7 +6,10 @@ const usuario = require('../models/usuarios');
 
 
 router.get('/registro', (req, res) => {
-    res.render('auth/registro');
+    res.render('auth/registro',{
+        title:"Registro",
+        style:"info.css"
+    });
 })
 
 router.post('/registro', async (req, res, done) => {

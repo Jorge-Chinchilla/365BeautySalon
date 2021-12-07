@@ -88,19 +88,17 @@ const createFactura = async (req, res) => {
         const data = req.body;
         const getServicio = await Servicio.findById({ _id: data.servicio }).lean();
 
-
         const cita = await Cita.findById({ _id: data.cita_ID}).lean();
-        console.log("Cita Creada");
-
-        // nombre = cita.nombre;
-        // correo = cita.correo;
-        // numero = cita.numero;
-        // servicio = cita.servicio;
-        // fecha_cita = cita.fecha_cita;
-        // estado = "Finalizado";
-        //
-        // await Cita.findByIdAndUpdate(data.cita_ID, { nombre, correo, numero, servicio, fecha_cita, estado }).lean();
-
+        console.log(cita,"Cita Creada");
+        if(cita != null){
+            nombre = cita.nombre;
+            correo = cita.correo;
+            numero = cita.numero;
+            servicio = cita.servicio;
+            fecha_cita = cita.fecha_cita;
+            estado = "Finalizado";
+            await Cita.findByIdAndUpdate(data.cita_ID, { nombre, correo, numero, servicio, fecha_cita, estado }).lean();
+        }
 
         const newFactura = new Factura({
             kai_ID: kai_ID,
