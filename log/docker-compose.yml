@@ -14,7 +14,6 @@ services:
     networks:
       - bridge
     
-
   empleado:
     container_name: empleado
     restart: always
