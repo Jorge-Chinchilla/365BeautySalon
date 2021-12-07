@@ -28,10 +28,10 @@
                         <h4 class="linea">Servicio:</h4>
                     </div>
                     <div class="col d-flex justify-content-center">
-                        <select name="servicio" id="servicio" class="value" aria-label="Default select example">
-                            <option selected>Servicios</option>
+                        <select name="servicio" id="servicio" class="value" required>
+                            <option selected disabled value="">Servicios</option>
                             {{#each servicio}}
-                                <option value="{{precio}}">{{nombre}}</option>
+                                <option value="{{_id}}">{{nombre}}</option>
                             {{/each}}
                         </select>
                     </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="col d-flex justify-content-center">
                         <select name="cita_ID" id="cita_ID" class="value" aria-label="Default select example">
-                            <option selected value="">Citas</option>
+                            <option selected value="61aed32bc604c3ea7cc26fef">Citas</option>
                             {{#each cita}}
                                 <option value="{{_id}}">{{nombre}}</option>
                             {{/each}}

@@ -8,8 +8,8 @@ const FacturaSchema = new Schema({
     nombre: String,
     id_cliente: String,
     servicio: String,
-    fecha: { type: Date, default: Date.now },
-    total: Number
+    total: Number,
+    fecha: { type: Date, default: Date.now }
 })
 
 const Factura = mongoose.model('Factura', FacturaSchema)

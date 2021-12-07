@@ -46,9 +46,18 @@ const getEditKAI = async (req, res) => {
 };
 
 const getInfoFactura = async (req, res) => {
+    const infoFactura = await Factura.find().lean();
+    infoFactura.forEach(facturas => {
+        if (facturas.fecha.getMinutes() < 10){
+            facturas.fecha = facturas.fecha.toDateString() + " " + facturas.fecha.getHours()+":"+facturas.fecha.getMinutes()+"0";
+        }else{
+            facturas.fecha = facturas.fecha.toDateString() + " " + facturas.fecha.getHours()+":"+facturas.fecha.getMinutes();
+        }
+    });
     res.render('menu/factura/info_factura', {
+        infoFactura,
         title: 'Factura',
-        style: 'test.css'
+        style: 'info.css'
     });
 };
 
@@ -63,6 +72,7 @@ const getDeleteFactura = async (req, res) => {
 }
 
 const createFactura = async (req, res) => {
+
     const kai = await KAI.find().lean();
     kai.forEach(kais => {
         kai_id = kais._id
@@ -71,17 +81,35 @@ const createFactura = async (req, res) => {
         ultimo = kais.ultimo;
         actual = kais.actual;
     });
+
     if(ultimo<actual){
         res.redirect('/factura');
     }else{
         const data = req.body;
+        const getServicio = await Servicio.findById({ _id: data.servicio }).lean();
+
+
+        const cita = await Cita.findById({ _id: data.cita_ID}).lean();
+        console.log("Cita Creada");
+
+        // nombre = cita.nombre;
+        // correo = cita.correo;
+        // numero = cita.numero;
+        // servicio = cita.servicio;
+        // fecha_cita = cita.fecha_cita;
+        // estado = "Finalizado";
+        //
+        // await Cita.findByIdAndUpdate(data.cita_ID, { nombre, correo, numero, servicio, fecha_cita, estado }).lean();
+
+
         const newFactura = new Factura({
             kai_ID: kai_ID,
-            nFactura: actual,
             cita_ID: data.cita_ID,
+            nFactura: actual,
             nombre: data.nombre,
             id_cliente: data.id_cliente,
-            servicio: data.servicio,
+            servicio: getServicio.nombre,
+            total: getServicio.precio
         });
         await newFactura.save();
         actual= actual+1;

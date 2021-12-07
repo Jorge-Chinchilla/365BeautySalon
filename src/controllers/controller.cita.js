@@ -1,6 +1,5 @@
-const Cita = require('../models/citas')
-const Servicio = require('../models/servicios')
-const Productos = require("../models/productos");
+const Cita = require('../models/citas');
+const Servicio = require('../models/servicios');
 
 const getCita = async (req, res) => {
     const cita = await Cita.find().lean();
@@ -321,6 +320,7 @@ const filtrarCitasFin = async (req, res) => {
             }
         }
     }
+
     finCita=[];
     cita.forEach(citas => {
         if (citas.estado == "Finalizado"){

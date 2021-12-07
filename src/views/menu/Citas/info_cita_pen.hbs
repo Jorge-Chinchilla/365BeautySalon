@@ -66,11 +66,6 @@
 
                     <button type="submit" class="btn btn-outline-primary">Finalizar</button>
                 </form>
-                <form action="/add_factura" method="post">
-                    <input type="text" name="id" id="id" value="{{_id}}" hidden>
-                    <input type="text" name="servicio" id="servicio" value="{{servicio}}" hidden required>
-                    <button type="submit" class="btn btn-outline-danger">Crear Factura</button>
-                </form>
                 <form action="/cita/edit_cita" method="post">
                     <input type="text" name="nombre" id="nombre" value="{{nombre}}" hidden required>
                     <input type="email" name="correo" id="correo" value="{{correo}}" hidden required>
