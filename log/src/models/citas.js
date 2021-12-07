@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const {DATETIME, TIME} = require("mysql/lib/protocol/constants/types");
 const Schema = mongoose.Schema
 
 const CitaSchema = new Schema({

@@ -35,14 +35,15 @@ services:
       - bridge
 
   servicio:
-      container_name: servicio
-      restart: always
-      build:
-        context: ../servicio
-      ports:
-        - "53:3000"
-      networks:
-          - bridge
+    container_name: servicio
+    restart: always
+    build:
+      context: ../servicio
+    ports:
+      - "56:3000"
+    networks:
+      - bridge
+
 
   cita:
     container_name: cita
