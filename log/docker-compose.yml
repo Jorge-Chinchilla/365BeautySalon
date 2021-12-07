@@ -1,0 +1,36 @@
+version: "3.8"
+
+networks:
+  bridge:
+
+services:  
+  app:
+    container_name: app
+    restart: always
+    build:
+      context: .
+    ports:
+      - "50:3000"
+    networks:
+      - bridge
+    
+
+  empleado:
+    container_name: empleado
+    restart: always
+    build:
+      context: ../empleado
+    ports:
+      - "51:3000"
+    networks:
+      - bridge
+
+  producto:
+    container_name: producto
+    restart: always
+    build:
+      context: ../producto
+    ports:
+      - "52:3000"
+    networks:
+      - bridge

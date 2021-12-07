@@ -1,0 +1,48 @@
+{{> navigation }}
+{{#each editEmpleado}}
+
+    <div class="container p-12">
+        <div class="row">
+            <div class="col-md-12 mx-auto principal d-flex justify-content-center">
+                <div class="card">
+                    <div class="card-body">
+                    <form action="/empleado/edit_empleado/{{id}}" method="post">
+                        <label for="">Id</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="id" value="{{id}}" autofocus required>
+                        </div>
+                        <label for="">Nombre</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nombre" value="{{nombre}}" required>
+                        </div>
+                        <label for="">Apellido</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="apellido" value="{{apellido}}" required>
+                        </div>
+                        <label for="">Telefono</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="telefono" value="{{telefono}}" required>
+                        </div>
+                        <label for="">Correo</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="correo" value="{{correo}}" required>
+                        </div>
+                        <label for="">Cargo</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="cargo" value="{{cargo}}" required>
+                        </div>
+                        <label for=""></label>
+                        <div class="form-group d-flex justify-content-center">
+                            <label>
+                                <button class="btn btn-success">Actualizar</button>
+                                <a href="/empleado/info_empleado/{{id}}"><input type="button" class="btn btn-danger" value="Cancelar"></a>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/each}}
